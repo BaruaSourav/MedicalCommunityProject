@@ -12,7 +12,7 @@ namespace BOLayerMedCom
     using System;
     using System.Collections.Generic;
     
-    public partial class tblDoctor
+    public partial class Doctor
     {
         public int DocID { get; set; }
         public string Address { get; set; }
@@ -23,7 +23,10 @@ namespace BOLayerMedCom
         public string Email { get; set; }
         public int RegionID { get; set; }
         public string Password { get; set; }
+        public bool isActive { get; set; }
+        public string TariffCode { get; set; }
+        public bool isOnline { get; set; }
     
-        public virtual tblRegion tblRegion { get; set; }
+        public virtual Region Region { get; set; }
     }
 }

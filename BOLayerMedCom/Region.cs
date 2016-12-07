@@ -12,18 +12,20 @@ namespace BOLayerMedCom
     using System;
     using System.Collections.Generic;
     
-    public partial class tblDistrict
+    public partial class Region
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblDistrict()
+        public Region()
         {
-            this.tblRegions = new HashSet<tblRegion>();
+            this.Doctors = new HashSet<Doctor>();
         }
     
-        public int DistrictID { get; set; }
-        public string DistrictName { get; set; }
+        public int RegionID { get; set; }
+        public string RegionName { get; set; }
+        public Nullable<int> DistrictID { get; set; }
     
+        public virtual District District { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblRegion> tblRegions { get; set; }
+        public virtual ICollection<Doctor> Doctors { get; set; }
     }
 }

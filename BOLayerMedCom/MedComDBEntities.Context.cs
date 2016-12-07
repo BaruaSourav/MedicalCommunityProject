@@ -13,10 +13,10 @@ namespace BOLayerMedCom
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MediyardDBEntities : DbContext
+    public partial class MediyardDBEntities1 : DbContext
     {
-        public MediyardDBEntities()
-            : base("name=MediyardDBEntities")
+        public MediyardDBEntities1()
+            : base("name=MediyardDBEntities1")
         {
         }
     
@@ -25,8 +25,8 @@ namespace BOLayerMedCom
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tblDistrict> tblDistricts { get; set; }
-        public virtual DbSet<tblDoctor> tblDoctors { get; set; }
-        public virtual DbSet<tblRegion> tblRegions { get; set; }
+        public virtual DbSet<District> Districts { get; set; }
+        public virtual DbSet<Doctor> Doctors { get; set; }
+        public virtual DbSet<Region> Regions { get; set; }
     }
 }

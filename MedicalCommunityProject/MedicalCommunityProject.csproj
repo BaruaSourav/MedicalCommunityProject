@@ -125,6 +125,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Associates\AssociatesAreaRegistration.cs" />
     <Compile Include="Areas\Doctors\DoctorsAreaRegistration.cs" />
+    <Compile Include="Areas\Global\Controllers\HomeController.cs" />
     <Compile Include="Areas\Global\GlobalAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -141,6 +142,7 @@
     <Content Include="Areas\Global\Views\web.config" />
     <Content Include="Areas\Associates\Views\web.config" />
     <Content Include="Areas\Doctors\Views\web.config" />
+    <Content Include="Areas\Global\Views\Home\Home.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -159,8 +161,8 @@
     <Folder Include="Areas\Doctors\Controllers\" />
     <Folder Include="Areas\Doctors\Models\" />
     <Folder Include="Areas\Doctors\Views\Shared\" />
-    <Folder Include="Areas\Global\Controllers\" />
     <Folder Include="Areas\Global\Models\" />
+    <Folder Include="Areas\Global\Views\Global\" />
     <Folder Include="Areas\Global\Views\Shared\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\ViewModels\" />

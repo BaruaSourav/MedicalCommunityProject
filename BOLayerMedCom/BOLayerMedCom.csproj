@@ -51,59 +51,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MedComEntityModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MedComEntityModel.Context.tt</DependentUpon>
+    <Compile Include="District.cs">
+      <DependentUpon>MedComDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedComEntityModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MedComEntityModel.tt</DependentUpon>
+    <Compile Include="Doctor.cs">
+      <DependentUpon>MedComDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedComEntityModel.Designer.cs">
+    <Compile Include="MedComDBEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MedComEntityModel.edmx</DependentUpon>
+      <DependentUpon>MedComDBEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedComDBEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedComDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedComDBEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedComDBEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tblDistrict.cs">
-      <DependentUpon>MedComEntityModel.tt</DependentUpon>
+    <Compile Include="Region.cs">
+      <DependentUpon>MedComDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="tblDoctor.cs">
-      <DependentUpon>MedComEntityModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tblRegion.cs">
-      <DependentUpon>MedComEntityModel.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="MedComEntityModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MedComEntityModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="MedComEntityModel.edmx.diagram">
-      <DependentUpon>MedComEntityModel.edmx</DependentUpon>
+    <EntityDeploy Include="MedComDBEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MedComDBEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MedComDBEntities.edmx.diagram">
+      <DependentUpon>MedComDBEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MedComEntityModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MedComEntityModel.Context.cs</LastGenOutput>
-      <DependentUpon>MedComEntityModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="MedComEntityModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MedComEntityModel.edmx</DependentUpon>
-      <LastGenOutput>MedComEntityModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="MedComDBEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MedComDBEntities.edmx</DependentUpon>
+      <LastGenOutput>MedComDBEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MedComDBEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MedComDBEntities.edmx</DependentUpon>
+      <LastGenOutput>MedComDBEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
