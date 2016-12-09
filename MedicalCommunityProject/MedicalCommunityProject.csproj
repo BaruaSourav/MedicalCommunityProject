@@ -127,6 +127,7 @@
     <Compile Include="Areas\Doctors\DoctorsAreaRegistration.cs" />
     <Compile Include="Areas\Global\Controllers\HomeController.cs" />
     <Compile Include="Areas\Global\GlobalAreaRegistration.cs" />
+    <Compile Include="Controllers\UserAuthController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -143,6 +144,8 @@
     <Content Include="Areas\Associates\Views\web.config" />
     <Content Include="Areas\Doctors\Views\web.config" />
     <Content Include="Areas\Global\Views\Home\Home.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminLoginVIew.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutPageAdminView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -153,8 +156,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Controllers\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Models\ViewModels\" />
     <Folder Include="Areas\Associates\Controllers\" />
     <Folder Include="Areas\Associates\Models\" />
     <Folder Include="Areas\Associates\Views\Shared\" />
@@ -164,8 +166,8 @@
     <Folder Include="Areas\Global\Models\" />
     <Folder Include="Areas\Global\Views\Global\" />
     <Folder Include="Areas\Global\Views\Shared\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\ViewModels\" />
+    <Folder Include="Views\UserAuth\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLLayerMedCom\BLLayerMedCom.csproj">
