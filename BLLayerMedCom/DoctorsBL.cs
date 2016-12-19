@@ -10,10 +10,6 @@ namespace BLLayerMedCom
 {
     class DoctorsBL
     {
-        private IDoctorRepository docRepo;
-        DoctorsBL(IDoctorRepository docRepo)
-        {
-            docRepo
-        }
+        
     }
 }
