@@ -8,7 +8,7 @@ using BOLayerMedCom;
 
 namespace DALayerMedCom
 {
-    class UnitOfWork:IDisposable
+   public class UnitOfWork:IDisposable
     {
         private MediyardDBEntities1 context = new MediyardDBEntities1();
         private GenericRepository<Doctor> doctorRepository;

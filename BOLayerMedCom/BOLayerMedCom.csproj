@@ -52,39 +52,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="District.cs">
-      <DependentUpon>MedComDBEntities.tt</DependentUpon>
+      <DependentUpon>MedComDBEntityContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Doctor.cs">
-      <DependentUpon>MedComDBEntities.tt</DependentUpon>
+      <DependentUpon>MedComDBEntityContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedComDBEntities.Context.cs">
+    <Compile Include="MedComDBEntityContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MedComDBEntities.Context.tt</DependentUpon>
+      <DependentUpon>MedComDBEntityContext.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedComDBEntities.cs">
+    <Compile Include="MedComDBEntityContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MedComDBEntities.tt</DependentUpon>
+      <DependentUpon>MedComDBEntityContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedComDBEntities.Designer.cs">
+    <Compile Include="MedComDBEntityContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MedComDBEntities.edmx</DependentUpon>
+      <DependentUpon>MedComDBEntityContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Region.cs">
-      <DependentUpon>MedComDBEntities.tt</DependentUpon>
+      <DependentUpon>MedComDBEntityContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\DocUserVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="MedComDBEntities.edmx">
+    <EntityDeploy Include="MedComDBEntityContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MedComDBEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>MedComDBEntityContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MedComDBEntities.edmx.diagram">
-      <DependentUpon>MedComDBEntities.edmx</DependentUpon>
+    <None Include="MedComDBEntityContext.edmx.diagram">
+      <DependentUpon>MedComDBEntityContext.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -92,15 +93,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MedComDBEntities.Context.tt">
+    <Content Include="MedComDBEntityContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MedComDBEntities.edmx</DependentUpon>
-      <LastGenOutput>MedComDBEntities.Context.cs</LastGenOutput>
+      <DependentUpon>MedComDBEntityContext.edmx</DependentUpon>
+      <LastGenOutput>MedComDBEntityContext.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="MedComDBEntities.tt">
+    <Content Include="MedComDBEntityContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MedComDBEntities.edmx</DependentUpon>
-      <LastGenOutput>MedComDBEntities.cs</LastGenOutput>
+      <DependentUpon>MedComDBEntityContext.edmx</DependentUpon>
+      <LastGenOutput>MedComDBEntityContext.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,7 +10,7 @@ namespace DALayerMedCom
 {
     public class GenericRepository<TEntity> where TEntity : class
     {
-        internal  MediyardDBEntities1 context;
+        internal  MediyardDBEntities1 context =new MediyardDBEntities1();
         internal DbSet<TEntity> dbSet;
 
         public GenericRepository(MediyardDBEntities1 context)
@@ -56,6 +56,7 @@ namespace DALayerMedCom
         {
             dbSet.Add(entity);
         }
+        
 
         public virtual void Delete(object id)
         {

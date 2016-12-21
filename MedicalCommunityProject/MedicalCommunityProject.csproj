@@ -131,6 +131,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Areas\Doctors\Views\Doctor\DocLoginWindow.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -142,6 +143,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Associates\AssociatesAreaRegistration.cs" />
+    <Compile Include="Areas\Doctors\Controllers\DoctorController.cs" />
     <Compile Include="Areas\Doctors\DocLoginController.cs" />
     <Compile Include="Areas\Doctors\DoctorsAreaRegistration.cs" />
     <Compile Include="Areas\Global\Controllers\HomeController.cs" />
@@ -150,7 +152,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViewModels\DocUserVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -166,7 +167,6 @@
     <Content Include="Areas\Global\Views\Home\Home.cshtml" />
     <Content Include="Areas\Admin\Views\AdminLoginVIew.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutPageAdminView.cshtml" />
-    <Content Include="Areas\Doctors\Views\DocLogin\DocLoginWindow.cshtml" />
     <Content Include="Areas\Doctors\Views\Shared\DoctorsLayout.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
@@ -183,11 +183,11 @@
     <Folder Include="Areas\Associates\Controllers\" />
     <Folder Include="Areas\Associates\Models\" />
     <Folder Include="Areas\Associates\Views\Shared\" />
-    <Folder Include="Areas\Doctors\Controllers\" />
     <Folder Include="Areas\Doctors\Models\" />
     <Folder Include="Areas\Global\Models\" />
     <Folder Include="Areas\Global\Views\Global\" />
     <Folder Include="Areas\Global\Views\Shared\" />
+    <Folder Include="Models\" />
     <Folder Include="Views\UserAuth\" />
   </ItemGroup>
   <ItemGroup>

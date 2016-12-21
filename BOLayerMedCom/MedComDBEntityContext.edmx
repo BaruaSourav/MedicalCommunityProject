@@ -33,7 +33,7 @@
           <Key>
             <PropertyRef Name="RegionID" />
           </Key>
-          <Property Name="RegionID" Type="int" Nullable="false" />
+          <Property Name="RegionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RegionName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DistrictID" Type="int" />
         </EntityType>
@@ -109,7 +109,7 @@
           <Key>
             <PropertyRef Name="RegionID" />
           </Key>
-          <Property Name="RegionID" Type="Int32" Nullable="false" />
+          <Property Name="RegionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DistrictID" Type="Int32" />
           <NavigationProperty Name="District" Relationship="Self.FK_tblRegion_tblDistrict1" FromRole="Region" ToRole="District" />

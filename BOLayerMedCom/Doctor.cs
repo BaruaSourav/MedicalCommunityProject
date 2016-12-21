@@ -28,6 +28,5 @@ namespace BOLayerMedCom
         public bool isOnline { get; set; }
     
         public virtual Region Region { get; set; }
-         
     }
 }
