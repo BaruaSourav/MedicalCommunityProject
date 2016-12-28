@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="~/Content/bootstrap.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script type="text/javascript" src="~/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Scripts/angular.js"></script>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="site-container">
+        <div class="site-pusher">
+
+            <header class="header">
+
+                <a href="#" class="header__icon" id="header__icon"></a>
+                <a href="#" class="header__logo" style="margin-left:17%"><h1><b>MEDIYARD</b></h1></a>
+
+                <nav class="menu nav navbar-right" style="margin-right:20%;">
+                    <a href="#">Home</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Doctor's Blog</a>
+                    <a href="#">Contact Us</a>
+                </nav>
+
+            </header>
+
+            @RenderBody()
+            <div class="site-cache" id="site-cache"></div>
+        </div>
+    </div><!--Site-container-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            (function ($) {
+                
+
+                $('#header__icon').click(function (e) {
+                    e.preventDefault();
+                    $('body').toggleClass('with--sidebar');
+                });
+
+                $('#site-cache').click(function (e) {
+                    $('body').removeClass('with--sidebar');
+                });
+
+            })(jQuery);
+
+        });
+    </script>
+</body>
+
+</html>

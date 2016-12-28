@@ -76,7 +76,7 @@
     <Compile Include="Region.cs">
       <DependentUpon>MedComDBEntityContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\DocUserVM.cs" />
+    <Compile Include="ViewModels\UserVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

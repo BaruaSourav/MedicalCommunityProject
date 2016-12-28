@@ -43,6 +43,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -121,6 +129,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\bigFrontImg.jpg" />
+    <Content Include="Content\img\Chat_talk_voice_bubble_phone_message_text.png" />
+    <Content Include="Content\img\check_up-512.png" />
+    <Content Include="Content\img\Stethoscope-1.png" />
+    <Content Include="Content\MenuAnim\common.css" />
+    <Content Include="Content\MenuAnim\demo.css" />
+    <Content Include="Content\MenuAnim\normalize.css" />
+    <Content Include="Content\MenuAnim\style7.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -132,11 +148,22 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Doctors\Views\Doctor\DocLoginWindow.cshtml" />
+    <Content Include="Areas\Doctors\Views\Doctor\DoctorDash.cshtml" />
+    <Content Include="Areas\Global\Views\Shared\_GlobalLayout.cshtml" />
+    <Content Include="Areas\Doctors\Views\Doctor\Register.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\classie.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.foggy.min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Content\style.css" />
+    <Content Include="Scripts\modernizr.custom.79639.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -186,7 +213,6 @@
     <Folder Include="Areas\Doctors\Models\" />
     <Folder Include="Areas\Global\Models\" />
     <Folder Include="Areas\Global\Views\Global\" />
-    <Folder Include="Areas\Global\Views\Shared\" />
     <Folder Include="Models\" />
     <Folder Include="Views\UserAuth\" />
   </ItemGroup>

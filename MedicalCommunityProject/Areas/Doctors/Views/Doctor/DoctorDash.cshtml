@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <link href="~/Content/MenuAnim/style7.css" rel="stylesheet" />
+
+    <link href="~/Content/MenuAnim/common.css" rel="stylesheet" />
+
+    <link href="~/Content/MenuAnim/normalize.css" rel="stylesheet" />
+
+    <link href="~/Content/MenuAnim/demo.css" rel="stylesheet" />
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+    <script src="~/Scripts/jquery.js"></script>
+
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <script src="~/Scripts/modernizr.custom.79639.js"></script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="site-pusher">
+            <header class="header">
+
+                <a href="#" class="header__icon" id="header__icon"></a>
+                <a href="#" class="header__logo" style="margin-left:17%;text-decoration:none"><h1><b>BAALYARD</b></h1></a>
+                <nav class="menu navbar navbar-right" style="margin-right:18%">
+                    <span style="color:#2098D1;"><b>@User.Identity.Name</b></span>
+                    <span class="glyphicon glyphicon-tasks"></span>
+                    <a class="btn btn-danger text-right">Log Out</a>
+                </nav>
+                
+
+            </header>
+
+
+            <div class="site-content">
+                <section id="content" style="padding-top:0px;">
+                    <div class="container">
+                        <div class="section" >
+                            <div class="doctor-viewport" style="overflow: hidden; position: relative;">
+                                <ul class="ch-grid">
+                                    <li>
+                                        <div class="ch-item">
+                                            <div class="ch-info">
+                                                <div class="ch-info-front ch-img-1">
+                                                    
+                                                </div>
+                                                <div class="ch-info-back"  style="background-color:#2098D1">
+                                                    <a href="http://www.google.com" target="_blank" style="text-decoration:none;"><h3 style="color:#f0f0f0">Browse Patients</h3></a>
+                                                    <p>Browse your present patient list and do desired operations.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="ch-item">
+                                            <div class="ch-info">
+                                                <div class="ch-info-front ch-img-2"></div>
+                                                <div class="ch-info-back" style="background-color:#2098D1">
+                                                    <a href="http://www.google.com" target="_blank" style="text-decoration:none;"><h3 style="color:#f0f0f0">Messages</h3></a>
+                                                    <p>Check messages from your contact and patients.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="ch-item">
+                                            <div class="ch-info">
+                                                <div class="ch-info-front ch-img-3"></div>
+                                                <div class="ch-info-back">
+                                                    <h3>Love</h3>
+                                                    <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            (function ($) {
+
+
+                $('#header__icon').click(function (e) {
+                    e.preventDefault();
+                    $('body').toggleClass('with--sidebar');
+                });
+
+                $('#site-cache').click(function (e) {
+                    $('body').removeClass('with--sidebar');
+                });
+
+            })(jQuery);
+
+        });
+    </script>
+</body>
+
+</html>

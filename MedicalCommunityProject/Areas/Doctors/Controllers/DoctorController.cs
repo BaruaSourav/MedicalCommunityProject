@@ -5,41 +5,85 @@ using System.Web;
 using System.Web.Mvc;
 using BOLayerMedCom.ViewModels;
 using BLLayerMedCom;
+using BOLayerMedCom;
 
 namespace MedicalCommunityProject.Areas.Doctors.Controllers
 {
     public class DoctorController : Controller
     {
+        public DoctorController()
+        {
+            ViewBag.RegSuccess = null;
+            ViewBag.WrongPW = null;
+            ViewBag.NoUser = null;
+        }
         // GET: Doctors/Doctor
         public ActionResult Index()
         {
             return View("DocHome");
         }
-        [HttpGet]
-        public ActionResult Login()
-        {
-            return View("DocLoginWindow");
-        }
+        //[HttpGet]
+        //public ActionResult Login()
+        //{
+        //    return View("DocLoginWindow");
+        //}
 
         [HttpPost]
-        public ActionResult Login(DocUserVM doc) // recieves the doctor's viewmodel
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(UserVM doc) // recieves the doctor's viewmodel
+        {
+            if (ModelState.IsValid)
+            {
+                DoctorsBL dbl = new DoctorsBL();
+                if (dbl.doctorExists(doc))
+                {
+                    if (dbl.verifyDoctor(doc))
+                    {
+                        return View("DoctorDash");
+                    }
+                    else
+                    {
+                        ViewBag.WrongPW = true;   
+                        return View("~/Areas/Global/Views/Home/Home.cshtml");
+                    }
+                }
+
+                ViewBag.NoUser = true;
+
+                return View("~/Areas/Global/Views/Home/Home.cshtml");
+            }
+            else
+                return View("~/Areas/Global/Views/Home/Home.cshtml");
+        }
+        [HttpGet]
+
+        public ActionResult Register()
+        {
+            RegionsBL rbl = new RegionsBL();
+            ViewData["RegionID"] = rbl.getRegionList();
+            return View("Register");
+        }
+        [HttpPost]
+        
+
+        public ActionResult Register([Bind(Include = "DocID,Address,FirstName,LastName,UserName,DOB,Email,RegionID,Password")] Doctor doc)
+
         {
             DoctorsBL dbl = new DoctorsBL();
-            if (dbl.doctorExists(doc))
+            RegionsBL rbl = new RegionsBL();
+            doc.isOnline = false;
+            doc.isActive = false;
+            doc.TariffCode = String.Empty;
+
+            if (ModelState.IsValid)
             {
-                if (dbl.verifyDoctor(doc))
-                {
-                    return Content("<html><h1>Success</h1></html>");
-                }
-                else
-                    return Content("<html><h1>Login Failed</h1></html>");
+                dbl.insertDoc(doc);
+                ViewBag.RegSuccess = true;
+                return View("~/Areas/Global/Views/Home/Home.cshtml");
             }
 
-
-
-            return Content("<html><h1>No User Found</h1></html>"); ;
+            ViewData["RegionID"] = rbl.getRegionList();
+            return View("Register");
         }
-
-
     }
 }

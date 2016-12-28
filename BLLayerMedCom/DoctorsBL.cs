@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using BOLayerMedCom;
 using DALayerMedCom;
 using BOLayerMedCom.ViewModels;
-
+using System.Web.Security;
 
 namespace BLLayerMedCom
 {
     public class DoctorsBL
     {
         UnitOfWork uw = new UnitOfWork();
-        public bool doctorExists(DocUserVM doc)
+        public bool doctorExists(UserVM doc)
         {
             
             var un = doc.userName;
@@ -24,7 +24,7 @@ namespace BLLayerMedCom
                 return false;
            }
         
-        public bool verifyDoctor(DocUserVM doc)
+        public bool verifyDoctor(UserVM doc)
         {
             var un = doc.userName;
             Doctor docInstance;
@@ -34,10 +34,15 @@ namespace BLLayerMedCom
             {
                 docInstance = docList.FirstOrDefault();
                 if (doc.password == docInstance.Password)
-                    return true;
+                {
+                    System.Diagnostics.Trace.WriteLine("verifydoc- Login Success");
 
+                    FormsAuthentication.SetAuthCookie(docInstance.Username,false);
+                    return true;
+                }
                 else
                 {
+                     System.Diagnostics.Trace.WriteLine("verifydoc- Login Failed");
                     return false;
                 }
             }
@@ -50,6 +55,12 @@ namespace BLLayerMedCom
             
         } 
 
+        public bool insertDoc(Doctor doc)
+        {
+            uw.DoctorRepository.Insert(doc);
+            uw.Save();
+            return false;
+        }
 
            
         

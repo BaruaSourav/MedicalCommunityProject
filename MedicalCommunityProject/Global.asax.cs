@@ -13,6 +13,8 @@ namespace MedicalCommunityProject
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+           
         }
     }
 }
