@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BOLayerMedCom.ViewModels;
 using BLLayerMedCom;
 using BOLayerMedCom;
+using System.Web.Security;
 
 namespace MedicalCommunityProject.Areas.Doctors.Controllers
 {
@@ -29,7 +30,7 @@ namespace MedicalCommunityProject.Areas.Doctors.Controllers
         //}
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public ActionResult Login(UserVM doc) // recieves the doctor's viewmodel
         {
             if (ModelState.IsValid)
@@ -39,6 +40,7 @@ namespace MedicalCommunityProject.Areas.Doctors.Controllers
                 {
                     if (dbl.verifyDoctor(doc))
                     {
+                        FormsAuthentication.SetAuthCookie(doc.userName, false);
                         return View("DoctorDash");
                     }
                     else
@@ -84,6 +86,23 @@ namespace MedicalCommunityProject.Areas.Doctors.Controllers
 
             ViewData["RegionID"] = rbl.getRegionList();
             return View("Register");
+        }
+
+        public ActionResult ViewPatients()
+        {
+
+            return Content("test");
+        }
+
+
+
+
+
+        [Authorize]
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+            return View("~/Areas/Global/Views/Home/Home.cshtml");
         }
     }
 }

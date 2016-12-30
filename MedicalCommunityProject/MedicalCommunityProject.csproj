@@ -132,6 +132,8 @@
     <Content Include="Content\img\bigFrontImg.jpg" />
     <Content Include="Content\img\Chat_talk_voice_bubble_phone_message_text.png" />
     <Content Include="Content\img\check_up-512.png" />
+    <Content Include="Content\img\medicine-plus-data.png" />
+    <Content Include="Content\img\ProfImg.png" />
     <Content Include="Content\img\Stethoscope-1.png" />
     <Content Include="Content\MenuAnim\common.css" />
     <Content Include="Content\MenuAnim\demo.css" />

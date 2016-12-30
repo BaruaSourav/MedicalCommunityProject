@@ -29,11 +29,11 @@
             <header class="header">
 
                 <a href="#" class="header__icon" id="header__icon"></a>
-                <a href="#" class="header__logo" style="margin-left:17%;text-decoration:none"><h1><b>BAALYARD</b></h1></a>
+                <a href="#" class="header__logo" style="margin-left:17%;text-decoration:none"><h1><b>MEDIYARD</b></h1></a>
                 <nav class="menu navbar navbar-right" style="margin-right:18%">
                     <span style="color:#2098D1;"><b>@User.Identity.Name</b></span>
                     <span class="glyphicon glyphicon-tasks"></span>
-                    <a class="btn btn-danger text-right">Log Out</a>
+                    @Html.ActionLink("Log Out","SignOut","Doctor",new {area="Doctors" },new { @class="btn btn-danger" })
                 </nav>
                 
 
@@ -41,7 +41,8 @@
 
 
             <div class="site-content">
-                <section id="content" style="padding-top:0px;">
+        
+                <section id="content" style="padding-top:0px; background-color:aqua;">
                     <div class="container">
                         <div class="section" >
                             <div class="doctor-viewport" style="overflow: hidden; position: relative;">
@@ -53,7 +54,10 @@
                                                     
                                                 </div>
                                                 <div class="ch-info-back"  style="background-color:#2098D1">
-                                                    <a href="http://www.google.com" target="_blank" style="text-decoration:none;"><h3 style="color:#f0f0f0">Browse Patients</h3></a>
+                                                    <a href="@Url.Action("ViewPatients", "Doctor",new { area = "Doctors" })" style="text-decoration:none;"><h3 style="color:#f0f0f0">Browse Patients</h3></a>
+                                                    @*<h3 style="color:#f0f0f0">
+                                                    @Html.ActionLink("Browse Patients", "ViewPatients", "Doctor",new {area="Doctors"})
+                                                   </h3>*@
                                                     <p>Browse your present patient list and do desired operations.</p>
                                                 </div>
                                             </div>
@@ -74,9 +78,9 @@
                                         <div class="ch-item">
                                             <div class="ch-info">
                                                 <div class="ch-info-front ch-img-3"></div>
-                                                <div class="ch-info-back">
-                                                    <h3>Love</h3>
-                                                    <p>by Eileen Tjan <a href="http://drbl.in/ewTL">View on Dribbble</a></p>
+                                                <div class="ch-info-back" style="background-color:#2098D1">
+                                                    <a href="http://www.google.com" target="_blank" style="text-decoration:none;"><h3 style="color:#f0f0f0">Profile</h3></a>
+                                                    <p>Browse and edit your profile.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -84,6 +88,27 @@
                                 </ul>
                             </div>
                         </div>
+                    </div>
+                </section>
+                <section >
+                    
+                    <div class="container">
+                     <div style="padding-top:2%" class="doctorsLoginInfo">
+                        <h2>Discover your services</h2>
+                         <p>Access all your services from this menu,<br />
+                         you can add and remove patient's information and
+                         <br /> browse all your messages. </p>
+                         <br />
+                         <h2>Manage your profile</h2>
+                         <p>
+                             View and edit your profile,<br />
+                             do various profile related operations
+                             
+                         </p>
+                     </div>
+                     <div style="padding-top:3%" class="doctorsLoginBox">
+                            <img src="~/Content/img/medicine-plus-data.png" />
+                     </div>   
                     </div>
                 </section>
             </div>

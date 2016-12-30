@@ -69,8 +69,10 @@
     background-position:center;
 }
 
-.ch-img-3 { 
-	background-image: url(../headers2/images/21.jpg);
+.ch-img-3 {
+    background-image: url('../img/ProfImg.png');
+     background-size:cover;
+    background-position:center;
 }
 
 .ch-info h3 {
