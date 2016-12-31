@@ -91,7 +91,7 @@ namespace MedicalCommunityProject.Areas.Doctors.Controllers
         public ActionResult ViewPatients()
         {
 
-            return Content("test");
+            return RedirectToAction("Index", "PatientView");
         }
 
 

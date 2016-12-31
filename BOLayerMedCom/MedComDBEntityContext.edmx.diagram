@@ -5,11 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="1034a01d9cec4799b1f96a713e126ea7" Name="Diagram1">
-        <EntityTypeShape EntityType="MediyardDBModel.District" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="MediyardDBModel.Doctor" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MediyardDBModel.Region" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediyardDBModel.District" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" FillColor="128, 64, 0" />
+        <EntityTypeShape EntityType="MediyardDBModel.Doctor" Width="1.5" PointX="5" PointY="0.5" IsExpanded="true" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="MediyardDBModel.Region" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" FillColor="128, 64, 0" />
         <AssociationConnector Association="MediyardDBModel.FK_tblRegion_tblDistrict1" ManuallyRouted="false" />
         <AssociationConnector Association="MediyardDBModel.FK_tblDoctors_tblRegion1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MediyardDBModel.Patient" Width="1.5" PointX="7.75" PointY="1.625" />
+        <AssociationConnector Association="MediyardDBModel.FK_Patient_Doctor" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

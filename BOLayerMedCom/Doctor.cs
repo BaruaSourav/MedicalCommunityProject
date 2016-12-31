@@ -14,6 +14,12 @@ namespace BOLayerMedCom
     
     public partial class Doctor
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Doctor()
+        {
+            this.Patients = new HashSet<Patient>();
+        }
+    
         public int DocID { get; set; }
         public string Address { get; set; }
         public string FirstName { get; set; }
@@ -28,5 +34,7 @@ namespace BOLayerMedCom
         public bool isOnline { get; set; }
     
         public virtual Region Region { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Patient> Patients { get; set; }
     }
 }

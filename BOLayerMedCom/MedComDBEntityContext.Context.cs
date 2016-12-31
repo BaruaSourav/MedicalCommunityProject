@@ -28,5 +28,6 @@ namespace BOLayerMedCom
         public virtual DbSet<District> Districts { get; set; }
         public virtual DbSet<Doctor> Doctors { get; set; }
         public virtual DbSet<Region> Regions { get; set; }
+        public virtual DbSet<Patient> Patients { get; set; }
     }
 }

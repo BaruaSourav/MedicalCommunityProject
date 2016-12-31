@@ -1,0 +1,139 @@
+﻿@model IEnumerable<BOLayerMedCom.Patient>
+
+@{
+    ViewBag.Title = "PatientList";
+    Layout = "~/Areas/Doctors/Views/Shared/DoctorsLayout.cshtml";
+}
+<div class="site-content">
+    <section>
+        
+        <div class="container" style="height:100%; z-index:2; overflow-x:auto;">
+            
+            <div class="doctorsLoginInfo text-center" style="padding-top:3%;padding-left:3%;">
+                <img src="~/Content/img/491406528.jpg" style="width:40%;height:40%" class="center-block"/>
+                <h2> Manage all your patients</h2>
+                <p> Use this search box to search among your existing patients 
+                <br />
+                click on one of the records to see and add details</p>
+            </div>
+            <div class="doctorsLoginBox">
+
+
+                <div style="overflow-x:auto;padding-top:3%;">
+                    @using (Html.BeginForm())
+                    {
+                        <p>
+                             @Html.TextBox("SearchString")
+                            <input type="submit" value="Search" />
+                        </p>
+                    }
+
+                    <h3 class="text-left col-lg-6">Patient List</h3>
+                    <a class="btn btn-primary right col-lg-4" style="margin-top:3%">Add New Patient</a>
+
+
+                    <table class="table box-shadow--6dp table-hover" style="margin-top:11%;">
+
+                        <tbody>
+                            @if (!Model.Any())
+                            {
+                                <tr ><p class="text-center alert alert-danger">No Item to Show </p></tr>
+                            }
+
+                            else
+                            {
+                                foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td class="text-center" style="font-size:19px; color:#2098D1">
+                                        @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+                                    </td>
+                                    <td>
+                                        <span style="color:cornflowerblue;">Mail:</span> @Html.DisplayFor(modelItem => item.Email)
+                                        <br />
+                                        <span style="color:cornflowerblue;">Cell:</span> @Html.DisplayFor(modelItem => item.Contact)
+                                    </td>
+                                    @*<td>
+                                    @Html.DisplayFor(modelItem => item.Doctor.Address)
+                                </td>*@
+
+                                </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center">
+                    <ul class="pagination">
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="disabled"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                    </ul>
+                </div>
+                <p class="text-center"><span style="color:darkblue;"><b>@Model.Count()</b></span> <b>patient(s) found.</b></p>
+
+            </div>
+            
+        </div>
+    </section>
+</div>
+<div class="site-cache" id="site-cache"></div>
+
+
+
+
+
+
+
+
+
+
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Doctor.Address)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Doctor.Address)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PatientID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PatientID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PatientID })
+        </td>
+    </tr>
+}
+
+</table>*@

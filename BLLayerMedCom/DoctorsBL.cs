@@ -37,7 +37,7 @@ namespace BLLayerMedCom
                 {
                     System.Diagnostics.Trace.WriteLine("verifydoc- Login Success");
 
-                    FormsAuthentication.SetAuthCookie(docInstance.Username,false);
+                    //FormsAuthentication.SetAuthCookie(docInstance.Username,false);
                     return true;
                 }
                 else
@@ -60,6 +60,13 @@ namespace BLLayerMedCom
             uw.DoctorRepository.Insert(doc);
             uw.Save();
             return false;
+        }
+
+
+        public Doctor getByUN(string un)
+        {
+            var v = uw.DoctorRepository.Get(filter: o => o.Username.Equals(un));
+            return v.First<Doctor>();
         }
 
            

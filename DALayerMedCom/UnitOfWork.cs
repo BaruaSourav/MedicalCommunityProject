@@ -14,6 +14,8 @@ namespace DALayerMedCom
         private GenericRepository<Doctor> doctorRepository;
         private GenericRepository<District> districtRepository;
         private GenericRepository<Region> regionRepository;
+        private GenericRepository<Patient> patientRepository;
+
 
         //pub prop for DoctorRepo
         public GenericRepository<Doctor> DoctorRepository
@@ -51,6 +53,19 @@ namespace DALayerMedCom
                 return regionRepository;
             }
         }
+        public GenericRepository<Patient> PatientRepository
+        {
+            get
+            {
+                if (this.patientRepository == null)
+                {
+                    this.patientRepository = new GenericRepository<Patient>(context);
+                }
+                return patientRepository;
+            }
+        }
+
+
 
         public void Save()
         {
