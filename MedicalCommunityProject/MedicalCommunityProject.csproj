@@ -133,11 +133,14 @@
     <Content Include="Content\img\bigFrontImg.jpg" />
     <Content Include="Content\img\Chat_talk_voice_bubble_phone_message_text.png" />
     <Content Include="Content\img\check_up-512.png" />
+    <Content Include="Content\img\logoMed.png" />
     <Content Include="Content\img\medicine-plus-data.png" />
     <Content Include="Content\img\ProfImg.png" />
     <Content Include="Content\img\Stethoscope-1.png" />
     <Content Include="Content\MenuAnim\common.css" />
     <Content Include="Content\MenuAnim\demo.css" />
+    <Content Include="Content\MenuAnim\hover-min.css" />
+    <Content Include="Content\MenuAnim\hover.css" />
     <Content Include="Content\MenuAnim\normalize.css" />
     <Content Include="Content\MenuAnim\style7.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -155,6 +158,7 @@
     <Content Include="Areas\Global\Views\Shared\_GlobalLayout.cshtml" />
     <Content Include="Areas\Doctors\Views\Doctor\Register.cshtml" />
     <Content Include="Areas\Doctors\Views\PatientView\PatientList.cshtml" />
+    <Content Include="Content\MenuAnim\hover.css.map" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\bootstrap.js" />
