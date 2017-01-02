@@ -42,29 +42,80 @@
 
 
             </header>
-            @RenderBody()
-        </div>
-    </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
 
-            (function ($) {
+            <div class="site-content">
+                <div style="height:100%; width:100%; z-index:2; overflow:hidden;">
+                    <div class="sidebar-nav" style="height: 100%;">
+                        <div class="sideNavBG">
+                            <ul class="nav normalNav text-left" style="padding-top:55%;padding-left:25%; padding-bottom:40%;">
+                                <span class="glyphicon glyphicon-envelope btn-lg"></span>
+                                <a href="#" class="hvr-float-shadow" style="font-size:25px;"><b>Messages</b></a>
+                                <br />
+                                <br />
+                                <span class="glyphicon glyphicon-user btn-lg"></span>
+                                <a href="#" class="hvr-float-shadow" style="font-size:25px;"><b>Profile</b></a>
+                                <br />
+                                <br />
+                                <span class="glyphicon glyphicon-cog btn-lg"></span>
+                                <a href="#" class="hvr-float-shadow" style="font-size:25px;"><b>Settings</b></a>
+                                <br />
+                                <br />
+                                <span class="glyphicon glyphicon-comment btn-lg"></span>
+                                <a href="#" class="hvr-float-shadow" style="font-size:25px;"><b>Doctors' Blog</b></a>
+                                <br />
+                                <br />
+
+                            </ul>
+                            <ul class="nav navIcon text-center">
+                                <img src="~/Content/img/logoMed.png" style="height:50%; width:50%; padding-bottom:30%;" />
+                                <br />
+                                <a href="#" class="hvr-glow"><span class="glyphicon glyphicon-envelope btn-sm" style="font-size:25px;" data-toggle="tooltip" title="Message" data-placement="right"></span></a>
+                                <br>
+                                <br>
+                                <a href="#" class="hvr-glow"><span class="glyphicon glyphicon-user btn-sm " style="font-size:25px;" data-toggle="tooltip" title="Profile" data-placement="right"></span></a>
+                                <br>
+                                <br>
+                                <a href="#" class="hvr-glow"><span class="glyphicon glyphicon-cog btn-sm" style="font-size:25px;" data-toggle="tooltip" title="Settings" data-placement="right"></span></a>
+                                <br>
+                                <br>
+                                <a href="#" class="hvr-glow"><span class="glyphicon glyphicon-comment btn-sm" style="font-size:25px;" data-toggle="tooltip" title="Blog" data-placement="right"></span></a>
+                                <br>
+                                <br>
+                            </ul>
+                        </div>
+                    </div>
 
 
-                $('#header__icon').click(function (e) {
-                    e.preventDefault();
-                    $('body').toggleClass('with--sidebar');
+
+
+                    @RenderBody()
+                </div>
+            </div>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script>
+                $(document).ready(function () {
+
+                    (function ($) {
+
+
+                        $('#header__icon').click(function (e) {
+                            e.preventDefault();
+                            $('body').toggleClass('with--sidebar');
+                        });
+
+                        $('#site-cache').click(function (e) {
+                            $('body').removeClass('with--sidebar');
+                        });
+
+                    })(jQuery);
+
                 });
-
-                $('#site-cache').click(function (e) {
-                    $('body').removeClass('with--sidebar');
+            </script>
+            <script>
+                $(document).ready(function () {
+                    $('[data-toggle="tooltip"]').tooltip();
                 });
-
-            })(jQuery);
-
-        });
-    </script>
+            </script>
 </body>
 
 </html>

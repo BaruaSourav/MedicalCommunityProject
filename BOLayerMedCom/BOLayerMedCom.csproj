@@ -79,6 +79,7 @@
     <Compile Include="Region.cs">
       <DependentUpon>MedComDBEntityContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\PatientVM.cs" />
     <Compile Include="ViewModels\UserVM.cs" />
   </ItemGroup>
   <ItemGroup>

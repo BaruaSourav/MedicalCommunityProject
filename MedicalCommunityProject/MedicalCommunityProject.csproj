@@ -134,7 +134,9 @@
     <Content Include="Content\img\Chat_talk_voice_bubble_phone_message_text.png" />
     <Content Include="Content\img\check_up-512.png" />
     <Content Include="Content\img\logoMed.png" />
+    <Content Include="Content\img\mail-icon-128.png" />
     <Content Include="Content\img\medicine-plus-data.png" />
+    <Content Include="Content\img\phone-7-512.png" />
     <Content Include="Content\img\ProfImg.png" />
     <Content Include="Content\img\Stethoscope-1.png" />
     <Content Include="Content\MenuAnim\common.css" />
@@ -159,6 +161,8 @@
     <Content Include="Areas\Doctors\Views\Doctor\Register.cshtml" />
     <Content Include="Areas\Doctors\Views\PatientView\PatientList.cshtml" />
     <Content Include="Content\MenuAnim\hover.css.map" />
+    <Content Include="Areas\Doctors\Views\Shared\_DashLayout.cshtml" />
+    <Content Include="Areas\Doctors\Views\Doctor\AddPatientPartial.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\bootstrap.js" />

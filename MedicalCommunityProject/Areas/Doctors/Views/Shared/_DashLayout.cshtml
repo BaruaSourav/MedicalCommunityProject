@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <link href="~/Content/MenuAnim/style7.css" rel="stylesheet" />
+
+    <link href="~/Content/MenuAnim/common.css" rel="stylesheet" />
+
+    <link href="~/Content/MenuAnim/normalize.css" rel="stylesheet" />
+
+    <link href="~/Content/MenuAnim/demo.css" rel="stylesheet" />
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+    <script src="~/Scripts/jquery.js"></script>
+
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <script src="~/Scripts/modernizr.custom.79639.js"></script>
+
+    <link href="~/Content/MenuAnim/hover.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <div class="site-container">
+        <div class="site-pusher">
+            <header class="header">
+
+                <a href="#" class="header__icon" id="header__icon"></a>
+                <a href="#" class="header__logo" style="margin-left:17%;text-decoration:none"><h1><b>MEDIYARD</b></h1></a>
+                <nav class="menu navbar navbar-right" style="margin-right:18%">
+                    <span style="color:#2098D1;"><b>@User.Identity.Name</b></span>
+                    <span class="glyphicon glyphicon-tasks"></span>
+                    @Html.ActionLink("Log Out", "SignOut", "Doctor", new { area = "Doctors" }, new { @class = "btn btn-danger" })
+                </nav>
+
+
+            </header>
+
+            
+
+
+
+
+                    @RenderBody()
+                </div>
+            </div>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script>
+                $(document).ready(function () {
+
+                    (function ($) {
+
+
+                        $('#header__icon').click(function (e) {
+                            e.preventDefault();
+                            $('body').toggleClass('with--sidebar');
+                        });
+
+                        $('#site-cache').click(function (e) {
+                            $('body').removeClass('with--sidebar');
+                        });
+
+                    })(jQuery);
+
+                });
+            </script>
+            <script>
+                $(document).ready(function () {
+                    $('[data-toggle="tooltip"]').tooltip();
+                });
+            </script>
+
+
+    <br />
+    <footer class="text-center" style="padding-top:2%"> &copy;Mediyard EHR Service Authority - Software Division</footer>
+</body>
+
+
+</html>
+
+
+

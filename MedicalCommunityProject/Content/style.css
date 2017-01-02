@@ -664,8 +664,8 @@ input.input-text {
     }
 
     .table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
-        background-color: #550055;
-        color: #eeeeee;
+        background-color: #8cc3f35;
+        color: #1a87e6;
     }
 
     .table th {
@@ -690,8 +690,11 @@ input.input-text {
         text-align: center;
     }
     .sideNavBG {
-    background-image:none !important;
-}
+        background-image:none !important;
+    }
+    .dashboardInfo{
+        display:none !important;
+    }
 }
 
 .col-sms-1,
@@ -1140,4 +1143,8 @@ input[type=text].ng-invalid:hover {
 }
 .tableBG{
     background: linear-gradient(#eaf8fb, #eaf9f);
+}
+
+.site-text{
+    color:Highlight;
 }

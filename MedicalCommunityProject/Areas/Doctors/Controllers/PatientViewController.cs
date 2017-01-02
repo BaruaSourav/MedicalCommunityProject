@@ -30,5 +30,8 @@ namespace MedicalCommunityProject.Areas.Doctors.Controllers
 
             return View("PatientList",patientsOfThisDoc);
         }
+
+
+        
     }
 }

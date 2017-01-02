@@ -4,42 +4,21 @@
     ViewBag.Title = "PatientList";
     Layout = "~/Areas/Doctors/Views/Shared/DoctorsLayout.cshtml";
 }
-<div class="site-content">
-    <div style="height:100%; width:100%; z-index:2; overflow-x:auto; overflow:hidden;">
-        <div class="sidebar-nav" style="height: 100%;">
-            <div class="sideNavBG">
-                <ul class="nav normalNav text-left" style="padding-top:55%;padding-left:25%; padding-bottom:40%;">
-                    <span class="glyphicon glyphicon-envelope btn-lg"></span>
-                    <a href="#" class="hvr-float-shadow" style="font-size:25px;"><b>Messages</b></a>
-                    <br />
-                    <br />
-                    <span class="glyphicon glyphicon-user btn-lg"></span>
-                    <a href="#" class="hvr-float-shadow" style="font-size:25px;"><b>Profile</b></a>
-                    <br />
-                    <br />
-                    <span class="glyphicon glyphicon-cog btn-lg"></span>
-                    <a href="#" class="hvr-float-shadow" style="font-size:25px;"><b>Settings</b></a>
-                    <br />
-                    <br />
-                    <span class="glyphicon glyphicon-comment btn-lg"></span>
-                    <a href="#" class="hvr-float-shadow" style="font-size:25px;"><b>Doctors' Blog</b></a>
-                    <br />
-                    <br />
 
-                </ul>
-                <ul class="nav navIcon text-center">
-                    <a href="#"  class="drops"><img src="~/Content/img/logoMed.png" style="height:50%; width:50%; padding-bottom:30%;" /></a>
-                        <a href="#" class="hvr-glow dropdown-menu"><span class="glyphicon glyphicon-envelope btn-sm" style="font-size:25px;" data-toggle="tooltip" title="Message" data-placement="right"></span></a>
-                        <a href="#" class="hvr-glow dropdown-menu"><span class="glyphicon glyphicon-user btn-sm " style="font-size:25px;" data-toggle="tooltip" title="Profile" data-placement="right"></span></a>
-                        <a href="#" class="hvr-glow dropdown-menu"><span class="glyphicon glyphicon-cog btn-sm" style="font-size:25px;" data-toggle="tooltip" title="Settings" data-placement="right"></span></a>
-                        <a href="#" class="hvr-glow dropdown-menu"><span class="glyphicon glyphicon-comment btn-sm" style="font-size:25px;" data-toggle="tooltip" title="Blog" data-placement="right"></span></a>
-                    
-                
-                </ul>
-            </div>
-        </div>
         
             <div style="width:50%; overflow-x:auto; padding-left:2%;margin-top:3%" class="tableBG">
+                <div class="dashboardInfo" style="padding-top:1%">
+                    <img src="~/Content/img/491406528.jpg" width="80" height="80" style="float:left;"/>
+                    <div style="padding-left:7%;padding-top:1%">
+                        <ul>
+                            <li>See all patient details</li>
+                            <li>Add a new patient record</li>
+                            <li>Add Diagnosis Report & billing information of your patient</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                        @*<span class="site-text text-left" style="padding-left:1%;">All your patients are enlisted here. You can manage health records of your patients.</span>*@
                 <div class="searchBtnForTable" style="left:-5%; border:1px; border-color:#eaf8fb">
                     <div class="searchDiv" >
                         @using (Html.BeginForm())
@@ -56,45 +35,50 @@
                         }
                     </div>
                     
-                    <table class="table box-shadow--6dp table-hover borders" style="margin-top:7%;">
+                    <div>
+                        <table class="table box-shadow--6dp table-hover borders" style="margin-top:7%;">
 
-                        <tbody>
-                            @if (!Model.Any())
-                            {
-                                <tr>
-                                    <td>
-                                        <p class="text-center alert alert-danger">No Item to Show </p>
-                                    </td>
-                                </tr>
-                            }
-
-                            else
-                            {
-                                foreach (var item in Model)
+                            <tbody>
+                                @if (!Model.Any())
                                 {
                                     <tr>
-                                        <td class="text-center" style="font-size:19px; color:#2098D1">
-                                            <span class="text-left NameText">
-                                                @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
-                                            </span>
-                                            <br />
-                                            @{
-                                                String s = String.Format("{0:dd MMM yy}", item.PatientSince);
-                                            }
-                                            <span class="DateText">Enrollment Date: @s </span>
-                                        </td>
                                         <td>
-                                            <span style="color:#032129;">Mail:</span> @Html.DisplayFor(modelItem => item.Email)
-                                            <br />
-                                            <span style="color:#032129;">Cell:</span> @Html.DisplayFor(modelItem => item.Contact)
+                                            <p class="text-center alert alert-danger">No Item to Show </p>
                                         </td>
-                                        
-
                                     </tr>
-                                                    }
+                                }
+
+                                else
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="text-center" style="font-size:19px; color:#2098D1">
+                                                <span class="text-left NameText">
+                                                    @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+                                                </span>
+                                                <br />
+                                                @{
+                                                    String s = String.Format("{0:dd MMM yy}", item.PatientSince);
                                                 }
-                        </tbody>
-                    </table>
+                                                <span class="DateText">Enrollment Date: @s </span>
+                                            </td>
+                                            <td>
+                                                <span style="color:#032129;">
+                                                    <img src="~/Content/img/mail-icon-128.png" height="20" width="20" /> </span> @Html.DisplayFor(modelItem => item.Email)
+                                                <br />
+                                                <span style="color:#032129; padding-top:10%">
+                                                    <img src="~/Content/img/phone-7-512.png"   height="20" width="20"/>
+                                                </span> @Html.DisplayFor(modelItem => item.Contact)
+                                            </td>
+
+
+                                        </tr>
+                                                        }
+                                                    }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 
             <div class="text-center" >
@@ -113,24 +97,7 @@
      </div>
 </div>
 <div class="site-cache" id="site-cache"></div>
-<script>
-    $(function () {
-        var menuVisible = false;
-        $('.drops').click(function () {
-            if (menuVisible) {
-                $('.dropdown-menu').css({ 'display': 'none' });
-                menuVisible = false;
-                return;
-            }
-            $('.dropdown-menu').css({ 'display': 'block' });
-            menuVisible = true;
-        });
-        $('.dropdown-menu').click(function () {
-            $(this).css({ 'display': 'none' });
-            menuVisible = false;
-        });
-    });
-</script>
+
 
 
 
