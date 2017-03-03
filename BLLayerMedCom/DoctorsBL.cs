@@ -7,12 +7,19 @@ using BOLayerMedCom;
 using DALayerMedCom;
 using BOLayerMedCom.ViewModels;
 using System.Web.Security;
+using System.Data.Entity;
 
 namespace BLLayerMedCom
 {
     public class DoctorsBL
     {
-        UnitOfWork uw = new UnitOfWork();
+        public UnitOfWork uw;
+
+
+        public DoctorsBL(DbContext context)
+        {
+            uw = new UnitOfWork(context);
+        }
         public bool doctorExists(UserVM doc)
         {
             

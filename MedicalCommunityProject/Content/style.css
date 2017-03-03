@@ -14,6 +14,11 @@ body {
 
 a {
     text-decoration: none;
+    outline:0;
+}
+a:hover, a:active, a:focus {
+  outline:0;
+  text-decoration:none;
 }
 
 .container .jumbotron {
@@ -64,6 +69,7 @@ a {
         transition-duration: 0.5s;
         -webkit-transition-property: color, background-color;
         transition-property: color, background-color;
+        
     }
 
         .menu a:hover {
@@ -95,14 +101,14 @@ section#content {
     min-height: 400px;
     padding-top: 20px;
     text-align: left;
-    padding-top: 0;
+    
 }
 
 section#contents {
     min-height: 400px;
     padding-top: 20px;
     text-align: left;
-    padding-top: 0;
+    
 }
 
     section#contents:after {
@@ -984,7 +990,7 @@ input[type=text].ng-invalid:hover {
     
     top: -10%;
     width: 100%;
-    float: left;
+    
 }
 .form button{
     background: #222;
@@ -1147,4 +1153,126 @@ input[type=text].ng-invalid:hover {
 
 .site-text{
     color:Highlight;
+}
+/*Patient Add*/
+.hiddenForm{
+	
+	 transition: 0.8s;
+	 position:absolute;
+	 left:100%;
+}
+.hiddenForm legend {
+    font-size: 1.4em;
+}
+.hiddenForm fieldset{
+	border: none;
+}
+.hiddenForm form{
+	transition: 0.3s;
+}
+.hiddenForm .number{
+	background: #2792ac;
+    color: #fff;
+    height: 10%;
+    width: 12%;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 4px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    border-radius: 15px 15px 15px 0px;
+}
+.hiddenForm input[type="text"],
+.hiddenForm input[type="email"]
+{
+	
+    background: rgba(255,255,255,.1);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 0;
+    outline: 0;
+    padding: 7px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: #e8eeef;
+    color:#8a97a0;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 40px;
+}
+.hiddenForm input[type="text"]:focus,
+.hiddenForm input[type="email"]:focus{
+	background: #d2d9dd;
+}
+.hiddenForm input[type="submit"],
+.hiddenForm input[type="button"]{
+	 position: relative;
+    display: block;
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    margin: 0 auto;
+    background: #2792ac;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    width: 100%;
+    border: 0px solid #2792ac;
+    border-width: 1px 1px 3px;
+    margin-bottom: 10px;
+}
+.hiddenForm input[type="submit"]:hover,
+.hiddenForm input[type="button"]:hover
+{
+    background: #2b5c69;
+	border: 0px solid #2b5c69;
+    border-width: 1px 1px 3px;
+}
+.addPatBtn{
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  color: #3e89c2;
+  font-size: 24px;
+  background: #fcfeff;
+  padding: 10px 20px 10px 20px;
+  border: solid #90c8eb 4px;
+  text-decoration: none;
+}
+
+.addPatBtn:hover {
+  background: #ededed;
+  text-decoration: none;
+}
+
+.addNotif{
+    color:#428BCA;
+}
+
+.loginPopUp{
+    position:absolute;
+    height:50%;
+    width:20%;
+    left:35%;
+    top:30%;
+    z-index:1000003;
+}
+
+#overlay {
+    background: none repeat scroll 0 0 black;
+    position: fixed;
+    display: none;
+    opacity: 0.5;
+    z-index: 1000001;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+.admLoginImg{
+    height:50px;
+    width:50px;
 }

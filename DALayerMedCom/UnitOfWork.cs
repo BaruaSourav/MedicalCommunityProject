@@ -4,17 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BOLayerMedCom;
-
+using System.Data.Entity;
+using System.Data.Entity.Validation;
 
 namespace DALayerMedCom
 {
    public class UnitOfWork:IDisposable
     {
-        private MediyardDBEntities1 context = new MediyardDBEntities1();
+        private MediyardDBEntities1 context;
         private GenericRepository<Doctor> doctorRepository;
         private GenericRepository<District> districtRepository;
         private GenericRepository<Region> regionRepository;
         private GenericRepository<Patient> patientRepository;
+        private GenericRepository<Admin> adminRepository;
+
+        //injecting the context:DBContext
+        public UnitOfWork(DbContext paramContext)
+        {
+            this.context = (MediyardDBEntities1) paramContext;
+        }
+
+
+
 
 
         //pub prop for DoctorRepo
@@ -65,11 +76,41 @@ namespace DALayerMedCom
             }
         }
 
-
+        public GenericRepository<Admin> AdminRepository
+        {
+            get
+            {
+                if (this.adminRepository == null)
+                {
+                    this.adminRepository = new GenericRepository<Admin>(context);
+                }
+                return adminRepository;
+            }
+        }
 
         public void Save()
         {
-            context.SaveChanges();
+            
+            try
+            {
+                
+
+                context.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
         }
 
         private bool disposed = false;

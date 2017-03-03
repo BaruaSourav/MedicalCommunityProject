@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
     <link rel="stylesheet" href="~/Content/style.css">
-    <link rel="stylesheet" href="~/Content/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
     <script type="text/javascript" src="~/Scripts/jquery.js"></script>
+    <link href="~/Content/AnimateCSS/animate.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
     <script type="text/javascript" src="~/Scripts/angular.js"></script>
     <title>@ViewBag.Title</title>
 </head>
-<body>
+<body id="body">
+    @* Absolute div *@
+    <div id="absoluteDiv" style-="position:absolute;">
+
+    </div>
     <div class="site-container">
         <div class="site-pusher">
 
@@ -21,15 +27,31 @@
                 <a href="#" class="header__icon" id="header__icon"></a>
                 <a href="#" class="header__logo" style="margin-left:17%;text-decoration:none;"><h1><b>MEDIYARD</b></h1></a>
 
-                <nav class="menu nav navbar-right" style="margin-right:20%;">
-                    <a href="#">Home</a>
-                    <a href="#">About Us</a>
-                    <a href="#">Doctor's Blog</a>
-                    <a href="#">Contact Us</a>
+                <nav class="menu nav navbar-left" style="margin-right:20%;">
+                    <a href="#" style="text-decoration:none;">Home</a>
+                    <a href="#" style="text-decoration:none;">About Us</a>
+                    <a href="#" style="text-decoration:none;">Doctor's Blog</a>
+                    <a href="#" style="text-decoration:none;">Contact Us</a>
+                    
+
                 </nav>
+                <nav class="menu nav navbar-right" style="margin-right:20%;">
+                    @Ajax.ActionLink("Are you an Admin?", "AdminLogin", "Home", new { area = "Global" },
+                   new AjaxOptions
+                   {
+                       UpdateTargetId = "absoluteDiv",
+                       InsertionMode = InsertionMode.Replace,
+                       OnSuccess = "adminLoginOverlay()"
+                   },
 
+                     new
+                     {
+                         style = "text-decoration:none"
+                     }
+                     )
+                </nav>
             </header>
-
+            
             @RenderBody()
             <div class="site-cache" id="site-cache"></div>
         </div>
@@ -54,7 +76,36 @@
             })(jQuery);
 
         });
+
+
+
+
+        function adminLoginOverlay() {
+            $("#overlay").css("display","block");
+        }
+
+
+        function closeOverlay() {
+            
+            $(".loginPopUp").removeClass("bounceIn");
+            $(".loginPopUp").addClass("bounceOut");
+            $("#overlay").addClass("animated");
+            //$("#overlay").addClass("fadeOut");
+            
+            $("#overlay").css("display", "none");
+        }
+
     </script>
+
+
+
+
+    <div id="overlay" onclick="closeOverlay()">
+        
+    </div>
+
 </body>
+
+
 
 </html>

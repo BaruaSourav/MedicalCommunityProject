@@ -4,8 +4,15 @@
     ViewBag.Title = "PatientList";
     Layout = "~/Areas/Doctors/Views/Shared/DoctorsLayout.cshtml";
 }
+<div id="hiddenFormDiv">
+    @Html.Partial("~/Areas/Doctors/Views/Partials/AddPatientPartial.cshtml", new BOLayerMedCom.ViewModels.PatientVM());
 
-        
+</div>
+
+
+        <div onclick="openNav()" style="position:static; left:55%; top:20%;">
+    <button class="addPatBtn"> Add New Patient</button>
+</div>
             <div style="width:50%; overflow-x:auto; padding-left:2%;margin-top:3%" class="tableBG">
                 <div class="dashboardInfo" style="padding-top:1%">
                     <img src="~/Content/img/491406528.jpg" width="80" height="80" style="float:left;"/>
@@ -15,12 +22,17 @@
                             <li>Add a new patient record</li>
                             <li>Add Diagnosis Report & billing information of your patient</li>
                         </ul>
+
+                        
                     </div>
+
+                    
                 </div>
+               
                 
                         @*<span class="site-text text-left" style="padding-left:1%;">All your patients are enlisted here. You can manage health records of your patients.</span>*@
                 <div class="searchBtnForTable" style="left:-5%; border:1px; border-color:#eaf8fb">
-                    <div class="searchDiv" >
+                    <div class="searchDiv">
                         @using (Html.BeginForm())
                         {
                             <div class="form">
@@ -36,7 +48,7 @@
                     </div>
                     
                     <div>
-                        <table class="table box-shadow--6dp table-hover borders" style="margin-top:7%;">
+                        <table class="table box-shadow--6dp table-hover borders" style="">
 
                             <tbody>
                                 @if (!Model.Any())
@@ -94,8 +106,7 @@
                 <p style="margin-top:3%">Search Tag: <span class="label label-info" style="font-size:16px;"> @ViewBag.Stag</span> </p> 
             </div>
         </div>
-     </div>
-</div>
+     
 <div class="site-cache" id="site-cache"></div>
 
 

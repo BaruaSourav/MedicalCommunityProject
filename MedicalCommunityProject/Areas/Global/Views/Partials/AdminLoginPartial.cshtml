@@ -1,0 +1,67 @@
+﻿@model BOLayerMedCom.ViewModels.UserVM
+
+<div class="well loginPopUp animated bounceIn">
+
+    @if (ViewBag.WrongPW != null)
+    {
+        if (ViewBag.WrongPW)
+        {
+            <div class="alert alert-danger text-center"><b>Password Mismatch!<br /></b>Please provide your valid password</div>
+        }
+    }
+
+    @if (ViewBag.NoUser != null)
+    {
+        if (ViewBag.NoUser)
+        {
+            <div class="alert alert-danger text-center"><b>No User!!<br /></b>Please enter your correct UserName</div>
+        }
+    }
+
+
+
+
+
+
+    @if (ViewBag.RegSuccess != null)
+    {
+        if (ViewBag.RegSuccess)
+        {
+            <div class="alert alert-success text-center"><b>Registration Successful.<br /> Login with your credentials.</b></div>
+        }
+    }
+
+    <img src="~/Content/img/adminImg.png" class="img center-block admLoginImg" />
+    <h1 class="text-center" style="margin-top:2%;">Login As an EHR Admin</h1>
+    @using (Ajax.BeginForm("AdminLogin", "Home",
+        new AjaxOptions
+        {
+            UpdateTargetId="",
+
+        }
+
+        ))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @*<label class="sr-only" for="exampleInputEmail2">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>*@
+
+            @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control", placeholder = "username" } })
+            @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
+        </div>
+                                        <div class="form-group">
+                                            @*<label class="sr-only" for="exampleInputPassword2">Password</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">*@
+
+                                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", placeholder = "password", type = "password" } })
+                                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                            <div class="help-block text-leftt"><a href="">Forgot the password ?</a></div>
+                                        </div>
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-primary btn-block" style="width:50%;margin-left:45%;">Sign in</button>
+                                                </div>
+
+    }
+    
+</div>

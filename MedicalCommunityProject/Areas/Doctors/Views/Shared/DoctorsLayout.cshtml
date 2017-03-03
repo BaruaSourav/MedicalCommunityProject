@@ -9,7 +9,7 @@
     <link href="~/Content/MenuAnim/style7.css" rel="stylesheet" />
 
     <link href="~/Content/MenuAnim/common.css" rel="stylesheet" />
-
+    <link href="~/Content/AnimateCSS/animate.css" rel="stylesheet" />
     <link href="~/Content/MenuAnim/normalize.css" rel="stylesheet" />
 
     <link href="~/Content/MenuAnim/demo.css" rel="stylesheet" />
@@ -18,17 +18,19 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
     <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 
     <script src="~/Scripts/bootstrap.js"></script>
 
-    <script src="~/Scripts/modernizr.custom.79639.js"></script>
+    
 
-    <link href="~/Content/MenuAnim/hover.css" rel="stylesheet" />
+    <link href="~/Content/MenuAnim/hover-min.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
 
 
 </head>
 <body>
-    <div class="site-container">
+    <div class="site-container" style="background-color:whitesmoke">
         <div class="site-pusher">
             <header class="header">
 
@@ -42,6 +44,8 @@
 
 
             </header>
+            </div>
+        </div>                  
 
             <div class="site-content">
                 <div style="height:100%; width:100%; z-index:2; overflow:hidden;">
@@ -92,6 +96,7 @@
                 </div>
             </div>
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="~/Scripts/modernizr.custom.79639.js"></script>
             <script>
                 $(document).ready(function () {
 
@@ -121,4 +126,4 @@
 </html>
 
 
-</html>
+

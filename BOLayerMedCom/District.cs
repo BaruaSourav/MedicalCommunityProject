@@ -18,6 +18,7 @@ namespace BOLayerMedCom
         public District()
         {
             this.Regions = new HashSet<Region>();
+            this.Admins = new HashSet<Admin>();
         }
     
         public int DistrictID { get; set; }
@@ -25,5 +26,7 @@ namespace BOLayerMedCom
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Region> Regions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Admin> Admins { get; set; }
     }
 }

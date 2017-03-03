@@ -12,6 +12,9 @@ namespace MedicalCommunityProject.Areas.Doctors.Controllers
 {
     public class DoctorController : Controller
     {
+        MediyardDBEntities1 context = new MediyardDBEntities1();
+
+
         public DoctorController()
         {
             ViewBag.RegSuccess = null;
@@ -33,9 +36,11 @@ namespace MedicalCommunityProject.Areas.Doctors.Controllers
         
         public ActionResult Login(UserVM doc) // recieves the doctor's viewmodel
         {
+            
             if (ModelState.IsValid)
             {
-                DoctorsBL dbl = new DoctorsBL();
+
+                DoctorsBL dbl = new DoctorsBL(context);
                 if (dbl.doctorExists(doc))
                 {
                     if (dbl.verifyDoctor(doc))
@@ -61,7 +66,7 @@ namespace MedicalCommunityProject.Areas.Doctors.Controllers
 
         public ActionResult Register()
         {
-            RegionsBL rbl = new RegionsBL();
+            RegionsBL rbl = new RegionsBL(context);
             ViewData["RegionID"] = rbl.getRegionList();
             return View("Register");
         }
@@ -71,8 +76,8 @@ namespace MedicalCommunityProject.Areas.Doctors.Controllers
         public ActionResult Register([Bind(Include = "DocID,Address,FirstName,LastName,UserName,DOB,Email,RegionID,Password")] Doctor doc)
 
         {
-            DoctorsBL dbl = new DoctorsBL();
-            RegionsBL rbl = new RegionsBL();
+            DoctorsBL dbl = new DoctorsBL(context);
+            RegionsBL rbl = new RegionsBL(context);
             doc.isOnline = false;
             doc.isActive = false;
             doc.TariffCode = String.Empty;
@@ -102,7 +107,7 @@ namespace MedicalCommunityProject.Areas.Doctors.Controllers
         public ActionResult SignOut()
         {
             FormsAuthentication.SignOut();
-            return View("~/Areas/Global/Views/Home/Home.cshtml");
+            return RedirectToAction("Index","Home",new { area="Global"});
         }
     }
 }
