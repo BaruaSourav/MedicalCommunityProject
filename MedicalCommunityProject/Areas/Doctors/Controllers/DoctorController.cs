@@ -46,6 +46,8 @@ namespace MedicalCommunityProject.Areas.Doctors.Controllers
                     if (dbl.verifyDoctor(doc))
                     {
                         FormsAuthentication.SetAuthCookie(doc.userName, false);
+                        dbl.setOnline(doc.userName);
+                        
                         return View("DoctorDash");
                     }
                     else

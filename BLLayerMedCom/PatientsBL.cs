@@ -12,7 +12,16 @@ namespace BLLayerMedCom
     public class PatientsBL
     {
         public UnitOfWork uw;
+        public int TotalPatients{
+            get{
+                return uw.PatientRepository.Get().Count();
+            }
+            private set
+            {
 
+            }
+
+            }
 
          public PatientsBL(DbContext context)
         {

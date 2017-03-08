@@ -126,10 +126,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\AnimateCSS\animate.css" />
+    <Content Include="Content\bootstrap-table.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datepicker.css" />
+    <Content Include="Content\datepicker3.css" />
     <Content Include="Content\img\491406528.jpg" />
     <Content Include="Content\img\adminImg.png" />
     <Content Include="Content\img\bigFrontImg.jpg" />
@@ -149,6 +152,7 @@
     <Content Include="Content\MenuAnim\normalize.css" />
     <Content Include="Content\MenuAnim\style7.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\styles.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -169,7 +173,36 @@
     <Content Include="Areas\Global\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Global\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Global\Views\Partials\AdminLoginPartial.cshtml" />
+    <Content Include="Areas\Admins\Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Areas\Admins\Views\AdminDash\AdminDash.cshtml" />
+    <Content Include="Areas\Admins\Views\DoctorList\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\DoctorList\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\DoctorList\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\DoctorList\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\DoctorList\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\AdminList\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\AdminList\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\AdminList\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\AdminList\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\AdminList\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\PatientList\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\PatientList\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\PatientList\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\PatientList\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\PatientList\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\RegionList\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\RegionList\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\RegionList\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\RegionList\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\RegionList\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-table.js" />
+    <Content Include="Scripts\chart-data.js" />
+    <Content Include="Scripts\chart.min.js" />
+    <Content Include="Scripts\easypiechart-data.js" />
+    <Content Include="Scripts\easypiechart.js" />
+    <Content Include="Scripts\html5shiv.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -179,6 +212,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\classie.js" />
     <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\jquery-1.11.1.min.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -187,13 +221,25 @@
     <Content Include="Content\style.css" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lumino.glyphs.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr.custom.79639.js" />
+    <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admins\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admins\Controllers\AdminDashController.cs" />
+    <Compile Include="Areas\Admins\Controllers\AdminListController.cs" />
+    <Compile Include="Areas\Admins\Controllers\DoctorListController.cs" />
+    <Compile Include="Areas\Admins\Controllers\PatientListController.cs" />
+    <Compile Include="Areas\Admins\Controllers\RegionListController.cs" />
     <Compile Include="Areas\Associates\AssociatesAreaRegistration.cs" />
     <Compile Include="Areas\Doctors\Controllers\DoctorController.cs" />
     <Compile Include="Areas\Doctors\Controllers\PatientViewController.cs" />
@@ -211,13 +257,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admins\Views\web.config" />
     <Content Include="Areas\Global\Views\web.config" />
     <Content Include="Areas\Associates\Views\web.config" />
     <Content Include="Areas\Doctors\Views\web.config" />
     <Content Include="Areas\Global\Views\Home\Home.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminLoginVIew.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_LayoutPageAdminView.cshtml" />
+    <Content Include="Areas\Admins\Views\AdminLoginVIew.cshtml" />
+    <Content Include="Areas\Admins\Views\Shared\_LayoutPageAdminView.cshtml" />
     <Content Include="Areas\Doctors\Views\Shared\DoctorsLayout.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
@@ -229,8 +275,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
-    <Folder Include="Areas\Admin\Models\ViewModels\" />
+    <Folder Include="Areas\Admins\Models\ViewModels\" />
     <Folder Include="Areas\Associates\Controllers\" />
     <Folder Include="Areas\Associates\Models\" />
     <Folder Include="Areas\Associates\Views\Shared\" />

@@ -14,7 +14,13 @@ namespace BLLayerMedCom
    public class RegionsBL
     {
         public UnitOfWork uw;
-
+        public int TotalRegions
+        {
+            get
+            {
+                return uw.RegionRepository.Get().Count();
+            }
+        }
 
         public RegionsBL(DbContext context)
         {

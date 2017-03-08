@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminBL.cs" />
+    <Compile Include="DistrictBL.cs" />
     <Compile Include="DoctorsBL.cs" />
     <Compile Include="PatientsBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

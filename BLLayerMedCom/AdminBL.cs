@@ -13,7 +13,13 @@ namespace BLLayerMedCom
     public class AdminBL
     {
         public UnitOfWork uw;
-
+        public int TotalAdmins
+        {
+            get
+            {
+                return uw.AdminRepository.Get().Count();
+            }
+        }
 
         public AdminBL(DbContext context)
         {
@@ -24,7 +30,7 @@ namespace BLLayerMedCom
         {
 
             var un = admin.userName;
-            var filteredAdmin = uw.AdminRepository.Get(filter: d => d.UserName.ToLower().Equals(un));
+            var filteredAdmin = uw.AdminRepository.Get(filter: d => d.userName.ToLower().Equals(un));
             if (filteredAdmin.Count() != 0)
                 return true;
             else
@@ -34,12 +40,12 @@ namespace BLLayerMedCom
         {
             var un = adm.userName;
             Admin admInstance;
-            var admList = uw.AdminRepository.Get(filter: d => d.UserName.ToLower().Equals(un));
+            var admList = uw.AdminRepository.Get(filter: d => d.userName.ToLower().Equals(un));
 
             if (adminExists(adm))
             {
                 admInstance = admList.FirstOrDefault();
-                if (adm.password == admInstance.Password)
+                if (adm.password == admInstance.password)
                 {
                     System.Diagnostics.Trace.WriteLine("Personal Log- verifyAdmin- Login Success");
 
@@ -72,7 +78,7 @@ namespace BLLayerMedCom
 
         public Admin getByUN(string un)
         {
-            var v = uw.AdminRepository.Get(filter: o => o.UserName.Equals(un));
+            var v = uw.AdminRepository.Get(filter: o => o.userName.Equals(un));
             return v.First<Admin>();
         }
 

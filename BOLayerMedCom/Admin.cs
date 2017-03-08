@@ -14,11 +14,11 @@ namespace BOLayerMedCom
     
     public partial class Admin
     {
-        public string AdminID { get; set; }
+        public int AdminID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public string userName { get; set; }
+        public string password { get; set; }
         public int DistrictID { get; set; }
     
         public virtual District District { get; set; }

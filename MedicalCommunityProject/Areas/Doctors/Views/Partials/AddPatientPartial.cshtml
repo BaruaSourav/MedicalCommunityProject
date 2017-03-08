@@ -16,16 +16,16 @@
          <fieldset style="margin-top:10%;" >
             <legend><span class="number">1</span>Name</legend>
              @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-            <input type="text" id="FirstName" name="FirstName" value="" placeholder="First Name *">
+            <input type="text" id="FirstName" name="FirstName" value="@Model.FirstName" placeholder="First Name *">
              @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-            <input type="text" id="LastName" name="LastName" value="" placeholder="Last Name *">
+            <input type="text" id="LastName" name="LastName" value="@Model.LastName" placeholder="Last Name *">
         </fieldset>
         <fieldset>
             <legend><span class="number">2</span> Contact</legend>
             @Html.ValidationMessageFor(model => model.ContactNo, "", new { @class = "text-danger" })
-            <input type="text" id="Contact" name="ContactNo" value="" placeholder="Contact *">
+            <input type="text" id="Contact" name="ContactNo" value="@Model.ContactNo" placeholder="Contact *">
            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            <input type="text" id="Email" name="Email" value="" placeholder="E-mail *">
+            <input type="text" id="Email" name="Email" value="@Model.Email" placeholder="E-mail *">
             <input type="reset" class="btn btn-info" value="Reset">
         </fieldset>
         <input type="submit" value="Add" />

@@ -20,7 +20,12 @@ a:hover, a:active, a:focus {
   outline:0;
   text-decoration:none;
 }
-
+.content{
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
+}
 .container .jumbotron {
     border-radius: 6px;
 }
@@ -353,12 +358,8 @@ input.input-text {
     }
 
     .site-content {
-        position: absolute;
-        top: 66px;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        padding-top: 0;
+        padding-right:15%;
+        padding-left:15%;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
     }
@@ -1275,4 +1276,16 @@ input[type=text].ng-invalid:hover {
 .admLoginImg{
     height:50px;
     width:50px;
+}
+
+.leftPanel{
+    margin-top:10%;
+    height:80%;
+    padding-bottom:5%;
+    padding-top:5%;
+
+}
+
+.midContainer{
+    padding-top:4%;
 }

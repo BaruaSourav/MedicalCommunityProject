@@ -14,6 +14,13 @@ namespace BLLayerMedCom
     public class DoctorsBL
     {
         public UnitOfWork uw;
+        //read-only count for Doctors Entity 
+        public int TotalDoctors {
+            get
+            {
+                return uw.DoctorRepository.Get().Count();
+            }
+        }
 
 
         public DoctorsBL(DbContext context)
@@ -75,9 +82,19 @@ namespace BLLayerMedCom
             var v = uw.DoctorRepository.Get(filter: o => o.Username.Equals(un));
             return v.First<Doctor>();
         }
+        public void setOnline(string un)
+        {
+            Doctor doc = uw.DoctorRepository.Get(filter: o => o.Username.Equals(un)).FirstOrDefault();
+            doc.isOnline = true;
+            uw.DoctorRepository.Update(doc);
+            uw.Save();
 
-           
-        
+
+
+        }
+
+
+
     }
 }
 

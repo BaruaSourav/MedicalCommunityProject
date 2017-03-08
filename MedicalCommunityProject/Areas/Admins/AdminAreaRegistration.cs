@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace MedicalCommunityProject.Areas.Admin
+namespace MedicalCommunityProject.Areas.Admins
 {
     public class AdminAreaRegistration : AreaRegistration 
     {
@@ -8,7 +8,7 @@ namespace MedicalCommunityProject.Areas.Admin
         {
             get 
             {
-                return "Admin";
+                return "Admins";
             }
         }
 
@@ -16,7 +16,7 @@ namespace MedicalCommunityProject.Areas.Admin
         {
             context.MapRoute(
                 "Admin_default",
-                "Admin/{controller}/{action}/{id}",
+                "Admins/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }
