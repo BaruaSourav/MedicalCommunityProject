@@ -88,9 +88,13 @@ namespace BLLayerMedCom
             doc.isOnline = true;
             uw.DoctorRepository.Update(doc);
             uw.Save();
-
-
-
+        }
+        public void setOffline(string un)
+        {
+            Doctor doc = uw.DoctorRepository.Get(filter: o => o.Username.Equals(un)).FirstOrDefault();
+            doc.isOnline = false;
+            uw.DoctorRepository.Update(doc);
+            uw.Save();
         }
 
 

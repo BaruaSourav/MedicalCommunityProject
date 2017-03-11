@@ -21,6 +21,8 @@ namespace BOLayerMedCom
         public string Contact { get; set; }
         public int Supervisor { get; set; }
         public System.DateTime PatientSince { get; set; }
+        public string UID { get; set; }
+        public string pin { get; set; }
     
         public virtual Doctor Doctor { get; set; }
     }

@@ -133,8 +133,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\datepicker.css" />
     <Content Include="Content\datepicker3.css" />
+    <Content Include="Content\HoverCSS\Hover.min.css" />
     <Content Include="Content\img\491406528.jpg" />
     <Content Include="Content\img\adminImg.png" />
+    <Content Include="Content\img\appointment-icon.png" />
     <Content Include="Content\img\bigFrontImg.jpg" />
     <Content Include="Content\img\Chat_talk_voice_bubble_phone_message_text.png" />
     <Content Include="Content\img\check_up-512.png" />
@@ -143,6 +145,7 @@
     <Content Include="Content\img\medicine-plus-data.png" />
     <Content Include="Content\img\notepad_prescription-512.png" />
     <Content Include="Content\img\phone-7-512.png" />
+    <Content Include="Content\img\phrIcon.png" />
     <Content Include="Content\img\ProfImg.png" />
     <Content Include="Content\img\Stethoscope-1.png" />
     <Content Include="Content\MenuAnim\common.css" />
@@ -195,6 +198,11 @@
     <Content Include="Areas\Admins\Views\RegionList\Details.cshtml" />
     <Content Include="Areas\Admins\Views\RegionList\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\RegionList\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Districts\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Districts\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\Districts\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\Districts\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Districts\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-table.js" />
@@ -237,6 +245,7 @@
     <Compile Include="Areas\Admins\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admins\Controllers\AdminDashController.cs" />
     <Compile Include="Areas\Admins\Controllers\AdminListController.cs" />
+    <Compile Include="Areas\Admins\Controllers\DistrictsController.cs" />
     <Compile Include="Areas\Admins\Controllers\DoctorListController.cs" />
     <Compile Include="Areas\Admins\Controllers\PatientListController.cs" />
     <Compile Include="Areas\Admins\Controllers\RegionListController.cs" />
@@ -263,7 +272,6 @@
     <Content Include="Areas\Doctors\Views\web.config" />
     <Content Include="Areas\Global\Views\Home\Home.cshtml" />
     <Content Include="Areas\Admins\Views\AdminLoginVIew.cshtml" />
-    <Content Include="Areas\Admins\Views\Shared\_LayoutPageAdminView.cshtml" />
     <Content Include="Areas\Doctors\Views\Shared\DoctorsLayout.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">

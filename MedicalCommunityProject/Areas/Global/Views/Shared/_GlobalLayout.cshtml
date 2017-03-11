@@ -12,6 +12,9 @@
     <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
     <script type="text/javascript" src="~/Scripts/angular.js"></script>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <script src="~/Scripts/lumino.glyphs.js"></script>
+    <link href="~/Content/HoverCSS/Hover.min.css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
 </head>
 <body id="body">
@@ -35,7 +38,7 @@
                     
 
                 </nav>
-                <nav class="menu nav navbar-right" style="margin-right:20%;">
+                <nav class="menu nav navbar-right" >
                     @Ajax.ActionLink("Are you an Admin?", "AdminLogin", "Home", new { area = "Global" },
                    new AjaxOptions
                    {

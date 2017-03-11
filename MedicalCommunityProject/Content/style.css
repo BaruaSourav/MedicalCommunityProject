@@ -1289,3 +1289,18 @@ input[type=text].ng-invalid:hover {
 .midContainer{
     padding-top:4%;
 }
+
+.grayPanel{
+    background-color:#e1e8f4;
+    
+}
+.smlIcon{
+    height:40px;
+    width:35px;
+    padding-top:1%;
+    padding-bottom:1%;
+}
+
+.brandColor{
+    color:#2098D1;
+}

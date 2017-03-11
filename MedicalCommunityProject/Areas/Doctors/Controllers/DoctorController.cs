@@ -108,6 +108,11 @@ namespace MedicalCommunityProject.Areas.Doctors.Controllers
         [Authorize]
         public ActionResult SignOut()
         {
+            DoctorsBL dbl = new DoctorsBL(context);
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
+            dbl.setOffline(ticket.Name);
+
             FormsAuthentication.SignOut();
             return RedirectToAction("Index","Home",new { area="Global"});
         }

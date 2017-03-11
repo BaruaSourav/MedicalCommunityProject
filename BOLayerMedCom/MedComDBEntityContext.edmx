@@ -51,6 +51,8 @@
           <Property Name="Contact" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Supervisor" Type="int" Nullable="false" />
           <Property Name="PatientSince" Type="date" Nullable="false" />
+          <Property Name="UID" Type="varchar" MaxLength="57" StoreGeneratedPattern="Computed" />
+          <Property Name="pin" Type="varchar" MaxLength="4" Nullable="false" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
@@ -232,6 +234,8 @@
           <Property Name="Supervisor" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Doctor" Relationship="MediyardDBModel.FK_Patient_Doctor" FromRole="Patient" ToRole="Doctor" />
           <Property Name="PatientSince" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UID" Type="String" MaxLength="57" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="pin" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Patient_Doctor">
           <End Type="MediyardDBModel.Doctor" Role="Doctor" Multiplicity="1" />
@@ -313,6 +317,8 @@
           <EntitySetMapping Name="Patients">
             <EntityTypeMapping TypeName="MediyardDBModel.Patient">
               <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="pin" ColumnName="pin" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
                 <ScalarProperty Name="PatientSince" ColumnName="PatientSince" />
                 <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
                 <ScalarProperty Name="Contact" ColumnName="Contact" />
