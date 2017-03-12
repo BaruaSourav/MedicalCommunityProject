@@ -203,6 +203,9 @@
     <Content Include="Areas\Admins\Views\Districts\Details.cshtml" />
     <Content Include="Areas\Admins\Views\Districts\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Districts\Index.cshtml" />
+    <Content Include="Areas\Patients\Views\web.config" />
+    <Content Include="Areas\Patients\Views\Shared\_PatientLayout.cshtml" />
+    <Content Include="Areas\Patients\Views\AddAppointment\AddAppointment.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-table.js" />
@@ -255,6 +258,8 @@
     <Compile Include="Areas\Doctors\DoctorsAreaRegistration.cs" />
     <Compile Include="Areas\Global\Controllers\HomeController.cs" />
     <Compile Include="Areas\Global\GlobalAreaRegistration.cs" />
+    <Compile Include="Areas\Patients\Controllers\AddAppointmentController.cs" />
+    <Compile Include="Areas\Patients\PatientsAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -290,8 +295,10 @@
     <Folder Include="Areas\Doctors\Models\" />
     <Folder Include="Areas\Global\Models\" />
     <Folder Include="Areas\Global\Views\Global\" />
+    <Folder Include="Areas\Patients\Models\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\ng-modules\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLLayerMedCom\BLLayerMedCom.csproj">

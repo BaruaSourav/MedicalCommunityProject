@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script type="text/javascript" src="~/Scripts/jquery.js"></script>
+    <link href="~/Content/AnimateCSS/animate.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Scripts/angular.js"></script>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <script src="~/Scripts/lumino.glyphs.js"></script>
+    <link href="~/Content/HoverCSS/Hover.min.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body id="body">
+    @* Absolute div *@
+    <div id="absoluteDiv" style-="position:absolute;">
+
+    </div>
+    <div class="row site-container">
+        <div class="col-lg-12 col-sm-12 col-md-12 site-pusher">
+
+            <header class="row header">
+
+                <a href="#" class="header__icon" id="header__icon"></a>
+                <a href="#" class="header__logo" style="margin-left:17%;text-decoration:none;"><h1><b>MEDIYARD</b></h1></a>
+
+                <nav class="menu nav navbar-left" style="margin-right:20%;">
+                    <a href="#" style="text-decoration:none;">Home</a>
+                    <a href="#" style="text-decoration:none;">About Us</a>
+                    <a href="#" style="text-decoration:none;">Doctor's Blog</a>
+                    <a href="#" style="text-decoration:none;">Contact Us</a>
+                    
+
+                </nav>
+                
+            </header>
+            <div class="spacer row"> </div>
+            
+            @RenderBody()
+            <div class="site-cache" id="site-cache"></div>
+        </div>
+    </div><!--Site-container-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            (function ($) {
+                
+
+                $('#header__icon').click(function (e) {
+                    e.preventDefault();
+                    $('body').toggleClass('with--sidebar');
+                });
+
+                $('#site-cache').click(function (e) {
+                    $('body').removeClass('with--sidebar');
+                });
+
+            })(jQuery);
+
+        });
+
+
+
+
+        function adminLoginOverlay() {
+            $("#overlay").css("display","block");
+        }
+
+
+        function closeOverlay() {
+            
+            $(".loginPopUp").removeClass("bounceIn");
+            $(".loginPopUp").addClass("bounceOut");
+            $("#overlay").addClass("animated");
+            //$("#overlay").addClass("fadeOut");
+            
+            $("#overlay").css("display", "none");
+        }
+
+    </script>
+
+
+
+
+    <div id="overlay" onclick="closeOverlay()">
+        
+    </div>
+
+</body>
+
+
+
+</html>

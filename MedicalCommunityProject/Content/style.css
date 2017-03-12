@@ -1304,3 +1304,7 @@ input[type=text].ng-invalid:hover {
 .brandColor{
     color:#2098D1;
 }
+
+.spacer{
+    margin-top:3%;
+}
