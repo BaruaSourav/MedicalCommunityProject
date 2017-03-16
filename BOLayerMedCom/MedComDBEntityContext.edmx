@@ -16,6 +16,17 @@
           <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DistrictID" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="AppID" />
+          </Key>
+          <Property Name="AppID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="DoctorID" Type="int" Nullable="false" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="isConfirmed" Type="bit" Nullable="false" />
+          <Property Name="isExpired" Type="bit" />
+        </EntityType>
         <EntityType Name="District">
           <Key>
             <PropertyRef Name="DistrictID" />
@@ -39,6 +50,9 @@
           <Property Name="isActive" Type="bit" Nullable="false" />
           <Property Name="TariffCode" Type="varchar" MaxLength="50" />
           <Property Name="isOnline" Type="bit" Nullable="false" />
+          <Property Name="practicingAddress" Type="varchar" MaxLength="100" />
+          <Property Name="ConsFee" Type="int" />
+          <Property Name="specID" Type="int" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
@@ -49,7 +63,7 @@
           <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Contact" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Supervisor" Type="int" Nullable="false" />
+          <Property Name="Supervisor" Type="int" />
           <Property Name="PatientSince" Type="date" Nullable="false" />
           <Property Name="UID" Type="varchar" MaxLength="57" StoreGeneratedPattern="Computed" />
           <Property Name="pin" Type="varchar" MaxLength="4" Nullable="false" />
@@ -61,6 +75,13 @@
           <Property Name="RegionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RegionName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DistrictID" Type="int" />
+        </EntityType>
+        <EntityType Name="Specialization">
+          <Key>
+            <PropertyRef Name="SpecID" />
+          </Key>
+          <Property Name="SpecID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpecName" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <Association Name="FK_Admin_District">
           <End Role="District" Type="Self.District" Multiplicity="1" />
@@ -74,8 +95,44 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Patient_Doctor">
+        <Association Name="FK_Appointment_Doctor">
           <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="DocID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="DoctorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doctor_Doctor">
+          <End Role="Specialization" Type="Self.Specialization" Multiplicity="0..1" />
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialization">
+              <PropertyRef Name="SpecID" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="specID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
           <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Doctor">
@@ -112,13 +169,27 @@
         </Association>
         <EntityContainer Name="MediyardDBModelStoreContainer">
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Admin_District" Association="Self.FK_Admin_District">
             <End Role="District" EntitySet="District" />
             <End Role="Admin" EntitySet="Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Doctor" Association="Self.FK_Appointment_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Patient" Association="Self.FK_Appointment_Patient">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doctor_Doctor" Association="Self.FK_Doctor_Doctor">
+            <End Role="Specialization" EntitySet="Specialization" />
+            <End Role="Doctor" EntitySet="Doctor" />
           </AssociationSet>
           <AssociationSet Name="FK_Patient_Doctor" Association="Self.FK_Patient_Doctor">
             <End Role="Doctor" EntitySet="Doctor" />
@@ -163,6 +234,11 @@
           <Property Name="TariffCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="isOnline" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Region" Relationship="Self.FK_tblDoctors_tblRegion1" FromRole="Doctor" ToRole="Region" />
+          <Property Name="practicingAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ConsFee" Type="Int32" />
+          <Property Name="specID" Type="Int32" />
+          <NavigationProperty Name="Appointments" Relationship="MediyardDBModel.FK_Appointment_Doctor" FromRole="Doctor" ToRole="Appointment" />
+          <NavigationProperty Name="Specialization" Relationship="MediyardDBModel.FK_Doctor_Doctor" FromRole="Doctor" ToRole="Specialization" />
           <NavigationProperty Name="Patients" Relationship="MediyardDBModel.FK_Patient_Doctor" FromRole="Doctor" ToRole="Patient" />
         </EntityType>
         <EntityType Name="Region">
@@ -211,44 +287,31 @@
             <End Role="Region" EntitySet="Regions" />
             <End Role="Doctor" EntitySet="Doctors" />
           </AssociationSet>
-          <EntitySet Name="Patients" EntityType="MediyardDBModel.Patient" />
-          <AssociationSet Name="FK_Patient_Doctor" Association="MediyardDBModel.FK_Patient_Doctor">
-            <End Role="Doctor" EntitySet="Doctors" />
-            <End Role="Patient" EntitySet="Patients" />
-          </AssociationSet>
           <EntitySet Name="Admins" EntityType="MediyardDBModel.Admin" />
           <AssociationSet Name="FK_Admin_District" Association="MediyardDBModel.FK_Admin_District">
             <End Role="District" EntitySet="Districts" />
             <End Role="Admin" EntitySet="Admins" />
           </AssociationSet>
+          <EntitySet Name="Appointments" EntityType="MediyardDBModel.Appointment" />
+          <EntitySet Name="Specializations" EntityType="MediyardDBModel.Specialization" />
+          <AssociationSet Name="FK_Appointment_Doctor" Association="MediyardDBModel.FK_Appointment_Doctor">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doctor_Doctor" Association="MediyardDBModel.FK_Doctor_Doctor">
+            <End Role="Specialization" EntitySet="Specializations" />
+            <End Role="Doctor" EntitySet="Doctors" />
+          </AssociationSet>
+          <EntitySet Name="Patients" EntityType="MediyardDBModel.Patient" />
+          <AssociationSet Name="FK_Appointment_Patient" Association="MediyardDBModel.FK_Appointment_Patient">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Doctor" Association="MediyardDBModel.FK_Patient_Doctor">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Patient">
-          <Key>
-            <PropertyRef Name="PatientID" />
-          </Key>
-          <Property Name="PatientID" Type="Int32" Nullable="false" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Contact" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Supervisor" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Doctor" Relationship="MediyardDBModel.FK_Patient_Doctor" FromRole="Patient" ToRole="Doctor" />
-          <Property Name="PatientSince" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="UID" Type="String" MaxLength="57" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="pin" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <Association Name="FK_Patient_Doctor">
-          <End Type="MediyardDBModel.Doctor" Role="Doctor" Multiplicity="1" />
-          <End Type="MediyardDBModel.Patient" Role="Patient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Doctor">
-              <PropertyRef Name="DocID" />
-            </Principal>
-            <Dependent Role="Patient">
-              <PropertyRef Name="Supervisor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="AdminID" />
@@ -273,6 +336,91 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="AppID" />
+          </Key>
+          <Property Name="AppID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DoctorID" Type="Int32" Nullable="false" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="isConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="isExpired" Type="Boolean" />
+          <NavigationProperty Name="Doctor" Relationship="MediyardDBModel.FK_Appointment_Doctor" FromRole="Appointment" ToRole="Doctor" />
+          <NavigationProperty Name="Patient" Relationship="MediyardDBModel.FK_Appointment_Patient" FromRole="Appointment" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Specialization">
+          <Key>
+            <PropertyRef Name="SpecID" />
+          </Key>
+          <Property Name="SpecID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpecName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Doctors" Relationship="MediyardDBModel.FK_Doctor_Doctor" FromRole="Specialization" ToRole="Doctor" />
+        </EntityType>
+        <Association Name="FK_Appointment_Doctor">
+          <End Type="MediyardDBModel.Doctor" Role="Doctor" Multiplicity="1" />
+          <End Type="MediyardDBModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="DocID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="DoctorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doctor_Doctor">
+          <End Type="MediyardDBModel.Specialization" Role="Specialization" Multiplicity="0..1" />
+          <End Type="MediyardDBModel.Doctor" Role="Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialization">
+              <PropertyRef Name="SpecID" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="specID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Supervisor" Type="Int32" />
+          <Property Name="PatientSince" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UID" Type="String" MaxLength="57" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="pin" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Appointments" Relationship="MediyardDBModel.FK_Appointment_Patient" FromRole="Patient" ToRole="Appointment" />
+          <NavigationProperty Name="Doctor" Relationship="MediyardDBModel.FK_Patient_Doctor" FromRole="Patient" ToRole="Doctor" />
+        </EntityType>
+        <Association Name="FK_Appointment_Patient">
+          <End Type="MediyardDBModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="MediyardDBModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Doctor">
+          <End Type="MediyardDBModel.Doctor" Role="Doctor" Multiplicity="0..1" />
+          <End Type="MediyardDBModel.Patient" Role="Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="DocID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="Supervisor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -290,6 +438,9 @@
           <EntitySetMapping Name="Doctors">
             <EntityTypeMapping TypeName="MediyardDBModel.Doctor">
               <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="specID" ColumnName="specID" />
+                <ScalarProperty Name="ConsFee" ColumnName="ConsFee" />
+                <ScalarProperty Name="practicingAddress" ColumnName="practicingAddress" />
                 <ScalarProperty Name="DocID" ColumnName="DocID" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -314,6 +465,38 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="MediyardDBModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="MediyardDBModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="isExpired" ColumnName="isExpired" />
+                <ScalarProperty Name="isConfirmed" ColumnName="isConfirmed" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specializations">
+            <EntityTypeMapping TypeName="MediyardDBModel.Specialization">
+              <MappingFragment StoreEntitySet="Specialization">
+                <ScalarProperty Name="SpecName" ColumnName="SpecName" />
+                <ScalarProperty Name="SpecID" ColumnName="SpecID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Patients">
             <EntityTypeMapping TypeName="MediyardDBModel.Patient">
               <MappingFragment StoreEntitySet="Patient">
@@ -326,18 +509,6 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="PatientID" ColumnName="PatientID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Admins">
-            <EntityTypeMapping TypeName="MediyardDBModel.Admin">
-              <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="userName" ColumnName="userName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

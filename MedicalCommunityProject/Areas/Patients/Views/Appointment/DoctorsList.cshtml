@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Add Appointment";
+    Layout = "~/Areas/Patients/Views/Shared/_PatientLayout.cshtml";
+}
+@model BOLayerMedCom.ViewModels.DocCardInfoVM
+
+
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="col-lg-2 col-md-3 col-sm-12" style="background-color:aliceblue;">
+        <h1 class="text-center">Appointment Placement Process</h1>
+        <p class="col-sm-12 text-center introText">
+            Find a doctor by your criteria of specialization.
+            <div class="col-sm-12 col-lg-12 col-md-12 borderSolid hvr-wobble-vertical" >
+                <ul class="col-sm-12 text-center instructions" style="list-style:none;">
+                    <li>
+                        <div class="row">Select a doctor as your requirement</div>
+                        <div class="row ">
+                            <img class="smlIcon" src="~/Content/img/notify-arrow.png" />
+                        </div>
+
+                    </li>
+
+                    <li>
+                        <div class="row">See his/her details and consultation fee</div>
+                        <div class="row ">
+                            <img class="smlIcon" src="~/Content/img/notify-arrow.png" />
+                        </div>
+                        
+                    </li>
+                    <li>
+                        <div class="row">Set an Appointment</div>
+                        <div class="row ">
+                            <img class="smlIcon" src="~/Content/img/notify-arrow.png" />
+                        </div>
+                        
+                    </li>
+                    <li>
+                        <div class="row">Wait for the doctor to confirm</div>
+                        @*<div class="row ">
+                            <img class="smlIcon" src="~/Content/img/notify-arrow.png" />
+                        </div>*@
+                    </li>
+                </ul>
+            </div>
+
+        </p>
+    </div>
+
+    <div class="col-lg-7 col-md-7 col-sm-12">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-1 col-sm-1 col-md-1">
+
+                <img src="~/Content/img/appointment-icon.png" class="midIcon hvr-grow" />
+            </div>
+            <div class="col-lg-9 col-sm-9 col-md-9">
+                <p>
+                    Doctors who uses <b><span class="brandColor hvr-underline-reveal">MEDIYARD</span></b> can be searched by specialization. Appointmentment process to this doctors are automated by our system.<br />
+                    Place your appointment here after selecting your desired medical consultation personnel.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 mainPanel">
+            @* Search Box *@
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <input type="text" class="form-control" placeholder="Search for a Doctor" id="searchText" />
+                    @*<a class="btn btn-default" ><span class="glyphicon glyphicon-search"></span>Search</a>*@
+                    
+                </div>
+
+            </div>
+
+
+            @* Specialization & Sort By Dropdown *@
+            <div class="row ">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <span class="brandColor">Sort By</span>
+                    <select class="form-control">
+                        <option>
+                            1
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="col-lg-6 col-md-6 col-sm-12 panel-default">
+                    <span class="brandColor">Specialization</span>
+                    @Html.DropDownListFor(x => x.spec, new SelectList(ViewBag.specList, "SpecID","SpecName"), "Select a specialization",new {@class="form-control" })
+                </div>
+
+            </div>
+            <div id="doctorList" class="col-lg-12 col-md-12 col-sm-12 nopadding">
+                @* Doctor's List Items *@
+
+                @{ 
+                    IEnumerable<BOLayerMedCom.ViewModels.DocCardInfoVM> list = ViewBag.dcardinfovm;
+                }
+                @Html.Partial("~/Areas/Patients/Views/Shared/DocListPartial.cshtml",list)
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+        @* end of mainpanel *@
+
+    </div>
+
+</div>
+

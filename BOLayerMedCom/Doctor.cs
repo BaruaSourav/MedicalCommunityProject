@@ -17,6 +17,7 @@ namespace BOLayerMedCom
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Doctor()
         {
+            this.Appointments = new HashSet<Appointment>();
             this.Patients = new HashSet<Patient>();
         }
     
@@ -32,8 +33,14 @@ namespace BOLayerMedCom
         public bool isActive { get; set; }
         public string TariffCode { get; set; }
         public bool isOnline { get; set; }
+        public string practicingAddress { get; set; }
+        public Nullable<int> ConsFee { get; set; }
+        public Nullable<int> specID { get; set; }
     
         public virtual Region Region { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Appointment> Appointments { get; set; }
+        public virtual Specialization Specialization { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Patient> Patients { get; set; }
     }

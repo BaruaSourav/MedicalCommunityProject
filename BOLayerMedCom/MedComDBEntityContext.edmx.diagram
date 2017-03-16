@@ -4,16 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1034a01d9cec4799b1f96a713e126ea7" Name="Diagram1" ZoomLevel="86">
-        <EntityTypeShape EntityType="MediyardDBModel.District" Width="1.5" PointX="3.625" PointY="0.5" IsExpanded="true" FillColor="128, 64, 0" />
-        <EntityTypeShape EntityType="MediyardDBModel.Doctor" Width="1.5" PointX="8.875" PointY="0.5" IsExpanded="true" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="MediyardDBModel.Region" Width="1.5" PointX="6.5" PointY="0.5" IsExpanded="true" FillColor="128, 64, 0" />
+      <Diagram DiagramId="1034a01d9cec4799b1f96a713e126ea7" Name="Diagram1" ZoomLevel="83" ShowGrid="true" DisplayType="true">
+        <EntityTypeShape EntityType="MediyardDBModel.District" Width="1.5" PointX="2.625" PointY="1" IsExpanded="false" FillColor="128, 64, 0" />
+        <EntityTypeShape EntityType="MediyardDBModel.Doctor" Width="1.5" PointX="9.375" PointY="0.5" IsExpanded="true" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="MediyardDBModel.Region" Width="1.5" PointX="4.875" PointY="1" IsExpanded="false" FillColor="128, 64, 0" />
         <AssociationConnector Association="MediyardDBModel.FK_tblRegion_tblDistrict1" ManuallyRouted="false" />
         <AssociationConnector Association="MediyardDBModel.FK_tblDoctors_tblRegion1" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="MediyardDBModel.Patient" Width="1.5" PointX="12.125" PointY="1.625" />
-        <AssociationConnector Association="MediyardDBModel.FK_Patient_Doctor" />
-        <EntityTypeShape EntityType="MediyardDBModel.Admin" Width="1.5" PointX="0.5" PointY="1.875" />
+        <EntityTypeShape EntityType="MediyardDBModel.Admin" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="false" />
         <AssociationConnector Association="MediyardDBModel.FK_Admin_District" />
+        <EntityTypeShape EntityType="MediyardDBModel.Appointment" Width="1.5" PointX="12.125" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediyardDBModel.Specialization" Width="1.5" PointX="11.75" PointY="0.5" FillColor="Lime" />
+        <AssociationConnector Association="MediyardDBModel.FK_Appointment_Doctor" />
+        <AssociationConnector Association="MediyardDBModel.FK_Doctor_Doctor" />
+        <EntityTypeShape EntityType="MediyardDBModel.Patient" Width="1.5" PointX="3.5" PointY="4.5" />
+        <AssociationConnector Association="MediyardDBModel.FK_Appointment_Patient" />
+        <AssociationConnector Association="MediyardDBModel.FK_Patient_Doctor" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

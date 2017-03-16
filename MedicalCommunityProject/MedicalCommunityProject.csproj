@@ -84,6 +84,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -135,18 +139,22 @@
     <Content Include="Content\datepicker3.css" />
     <Content Include="Content\HoverCSS\Hover.min.css" />
     <Content Include="Content\img\491406528.jpg" />
+    <Content Include="Content\img\address-512.png" />
     <Content Include="Content\img\adminImg.png" />
     <Content Include="Content\img\appointment-icon.png" />
     <Content Include="Content\img\bigFrontImg.jpg" />
     <Content Include="Content\img\Chat_talk_voice_bubble_phone_message_text.png" />
     <Content Include="Content\img\check_up-512.png" />
+    <Content Include="Content\img\doctor-suitecase-xxl.png" />
     <Content Include="Content\img\logoMed.png" />
     <Content Include="Content\img\mail-icon-128.png" />
     <Content Include="Content\img\medicine-plus-data.png" />
     <Content Include="Content\img\notepad_prescription-512.png" />
+    <Content Include="Content\img\notify-arrow.png" />
     <Content Include="Content\img\phone-7-512.png" />
     <Content Include="Content\img\phrIcon.png" />
     <Content Include="Content\img\ProfImg.png" />
+    <Content Include="Content\img\star.png" />
     <Content Include="Content\img\Stethoscope-1.png" />
     <Content Include="Content\MenuAnim\common.css" />
     <Content Include="Content\MenuAnim\demo.css" />
@@ -205,7 +213,10 @@
     <Content Include="Areas\Admins\Views\Districts\Index.cshtml" />
     <Content Include="Areas\Patients\Views\web.config" />
     <Content Include="Areas\Patients\Views\Shared\_PatientLayout.cshtml" />
-    <Content Include="Areas\Patients\Views\AddAppointment\AddAppointment.cshtml" />
+    <Content Include="Areas\Patients\Views\Appointment\DoctorsList.cshtml" />
+    <Content Include="Areas\Patients\Views\Shared\DocListPartial.cshtml" />
+    <Content Include="Areas\Patients\Views\Appointment\DoctorInfo.cshtml" />
+    <Content Include="Areas\Patients\Views\Appointment\PatientVerify.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-table.js" />
@@ -258,7 +269,7 @@
     <Compile Include="Areas\Doctors\DoctorsAreaRegistration.cs" />
     <Compile Include="Areas\Global\Controllers\HomeController.cs" />
     <Compile Include="Areas\Global\GlobalAreaRegistration.cs" />
-    <Compile Include="Areas\Patients\Controllers\AddAppointmentController.cs" />
+    <Compile Include="Areas\Patients\Controllers\AppointmentController.cs" />
     <Compile Include="Areas\Patients\PatientsAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -298,7 +309,6 @@
     <Folder Include="Areas\Patients\Models\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\ng-modules\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLLayerMedCom\BLLayerMedCom.csproj">

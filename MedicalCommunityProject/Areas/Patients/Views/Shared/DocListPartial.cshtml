@@ -1,0 +1,41 @@
+﻿@model IEnumerable<BOLayerMedCom.ViewModels.DocCardInfoVM>
+
+@if (Model.Count() == 0)
+{
+    <span>No Data Found</span>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <a href="@Url.Action("DoctorInfo",new { id=item.id })">
+            
+            <div class="col-lg-6 col-md-6 col-sm-12 cardText" >
+           
+            <div class="CardBody hvr-fade col-lg-12 col-md-12">
+               <span class="midText"><b>@Html.DisplayFor(m => item.Name)</b></span>
+                <br />
+                <span class="glyphicon glyphicon-bookmark"></span> <b>@Html.DisplayFor(m =>item.spec.SpecName ) </b>
+                
+                <br />
+                <span class="glyphicon glyphicon-hand-right"></span> Consultation Fee: <b>@Html.DisplayFor(m => item.Fees) Tk.</b>
+                <br />
+
+                <div class="patientNumber label label-primary">@Html.DisplayFor(m => item.totalPatients) Patient(s)</div>
+                
+
+                <span class="glyphicon glyphicon-road"></span> <span style="margin-left:4px;"><b>@Html.DisplayFor(m => item.PracticingAddress) </b></span>
+                <br />
+
+                <br />
+                <span class="label label-info" style="font-size:13px;" ><b>@Html.DisplayFor(m => item.region.RegionName) Region </b></span>
+                <br />
+
+
+
+
+            </div>
+        </div>
+    </a>
+    }
+}

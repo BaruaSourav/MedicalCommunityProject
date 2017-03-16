@@ -12,26 +12,18 @@ namespace BOLayerMedCom
     using System;
     using System.Collections.Generic;
     
-    public partial class Patient
+    public partial class Specialization
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Patient()
+        public Specialization()
         {
-            this.Appointments = new HashSet<Appointment>();
+            this.Doctors = new HashSet<Doctor>();
         }
     
-        public int PatientID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Contact { get; set; }
-        public Nullable<int> Supervisor { get; set; }
-        public System.DateTime PatientSince { get; set; }
-        public string UID { get; set; }
-        public string pin { get; set; }
+        public int SpecID { get; set; }
+        public string SpecName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Appointment> Appointments { get; set; }
-        public virtual Doctor Doctor { get; set; }
+        public virtual ICollection<Doctor> Doctors { get; set; }
     }
 }

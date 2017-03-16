@@ -8,12 +8,16 @@ using DALayerMedCom;
 using BOLayerMedCom.ViewModels;
 using System.Web.Security;
 using System.Data.Entity;
+using System.Globalization;
 
 namespace BLLayerMedCom
 {
     public class DoctorsBL
     {
-        public UnitOfWork uw;
+
+        
+
+        private UnitOfWork uw;
         //read-only count for Doctors Entity 
         public int TotalDoctors {
             get
@@ -23,21 +27,27 @@ namespace BLLayerMedCom
         }
 
 
+        public int TotalPatientByDoc(Doctor doc)
+        {
+            return uw.DoctorRepository.GetByID(doc.DocID).Patients.Count();
+        }
+
+
         public DoctorsBL(DbContext context)
         {
             uw = new UnitOfWork(context);
         }
         public bool doctorExists(UserVM doc)
         {
-            
+
             var un = doc.userName;
             var filteredDoc = uw.DoctorRepository.Get(filter: d => d.Username.ToLower().Equals(un));
-            if (filteredDoc.Count()!=0)
+            if (filteredDoc.Count() != 0)
                 return true;
             else
                 return false;
-           }
-        
+        }
+
         public bool verifyDoctor(UserVM doc)
         {
             var un = doc.userName;
@@ -56,7 +66,7 @@ namespace BLLayerMedCom
                 }
                 else
                 {
-                     System.Diagnostics.Trace.WriteLine("verifydoc- Login Failed");
+                    System.Diagnostics.Trace.WriteLine("verifydoc- Login Failed");
                     return false;
                 }
             }
@@ -64,10 +74,10 @@ namespace BLLayerMedCom
             {
                 return false;
             }
-           
 
-            
-        } 
+
+
+        }
 
         public bool insertDoc(Doctor doc)
         {
@@ -97,8 +107,92 @@ namespace BLLayerMedCom
             uw.Save();
         }
 
+        public List<Doctor> get(String searchTag,int? spec,String sortby)
+        {
+            Func<Doctor,Object> sortparam = null;
+
+            if (sortby.Equals("Fees"))
+                sortparam = m => m.ConsFee;
+            else if (sortby.Equals("FirstName"))
+                sortparam = m => m.FirstName;
+
+            var v = uw.DoctorRepository.Get(
+                filter:
+                o=>o.FirstName.Contains(searchTag)&& 
+                o.LastName.Contains(searchTag)&& 
+                o.specID==spec,
+            
+                orderBy:
+                o=>(IOrderedQueryable<Doctor>) o.OrderBy(sortparam)).ToList();
+
+
+
+                return v;
+        }
+
+
+        public List<Doctor> getAll()
+        {
+            var v = uw.DoctorRepository.Get().ToList();
+            return v;
+        }
+
+
+
+
+        public List<DocCardInfoVM> getDocCardList(List<Doctor> docList)
+        {
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            List<DocCardInfoVM> DCardList = new List<DocCardInfoVM>();
+
+            foreach (Doctor doctor in docList)
+            {
+                DCardList.Add(new DocCardInfoVM
+                {
+                    Fees = doctor.ConsFee.GetValueOrDefault(),
+                    region = doctor.Region,
+                    Name = "Dr. " + doctor.FirstName.ToUpper().Substring(0, 1) + doctor.FirstName.Substring(1).ToLower() + " " + doctor.LastName.ToUpper().Substring(0, 1) + doctor.LastName.ToLower().Substring(1),
+                    PracticingAddress = textInfo.ToTitleCase(doctor.practicingAddress ?? "No Address Given"),
+                    isOnline = doctor.isOnline,
+                    totalPatients = TotalPatientByDoc(doctor),
+                    spec = doctor.Specialization,
+                    id=doctor.DocID
+
+                });
+
+            };
+
+            return DCardList;
+
+        }
+
+        public DocCardInfoVM docVMfromDoc(Doctor doctor)
+        {
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            return new DocCardInfoVM
+            {
+                Fees = doctor.ConsFee.GetValueOrDefault(),
+                region = doctor.Region,
+                Name = "Dr. " + doctor.FirstName.ToUpper().Substring(0, 1) + doctor.FirstName.Substring(1).ToLower() + " " + doctor.LastName.ToUpper().Substring(0, 1) + doctor.LastName.ToLower().Substring(1),
+                PracticingAddress = textInfo.ToTitleCase(doctor.practicingAddress ?? "No Address Given"),
+                isOnline = doctor.isOnline,
+                totalPatients = TotalPatientByDoc(doctor),
+                spec = doctor.Specialization,
+                id = doctor.DocID
+
+            };
+        }
+
+
+
+
+            
+            }
+            
+        
+
 
 
     }
-}
+
 

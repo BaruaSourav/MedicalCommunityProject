@@ -1,0 +1,135 @@
+﻿
+
+@{
+    ViewBag.Title = "DoctorInfo";
+    Layout = "~/Areas/Patients/Views/Shared/_PatientLayout.cshtml";
+}
+@model BOLayerMedCom.ViewModels.DocCardInfoVM
+
+
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="col-lg-2 col-md-3 col-sm-12" style="background-color:aliceblue;">
+        <h1 class="text-center">Appointment Placement Process</h1>
+        <p class="col-sm-12 text-center introText">
+            Find a doctor by your criteria of specialization.
+            <div class="col-sm-12 col-lg-12 col-md-12 borderSolid hvr-wobble-vertical">
+                <ul class="col-sm-12 text-center instructions" style="list-style:none;">
+                    <li>
+                        <div class="row">Select a doctor as your requirement</div>
+                        <div class="row ">
+                            <img class="smlIcon" src="~/Content/img/notify-arrow.png" />
+                        </div>
+
+                    </li>
+
+                    <li>
+                        <div class="row">See his/her details and consultation fee</div>
+                        <div class="row ">
+                            <img class="smlIcon" src="~/Content/img/notify-arrow.png" />
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="row">Set an Appointment</div>
+                        <div class="row ">
+                            <img class="smlIcon" src="~/Content/img/notify-arrow.png" />
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="row">Wait for the doctor to confirm</div>
+                        @*<div class="row ">
+                                <img class="smlIcon" src="~/Content/img/notify-arrow.png" />
+                            </div>*@
+                    </li>
+                </ul>
+            </div>
+
+        </p>
+    </div>
+
+    <div class="col-lg-7 col-md-7 col-sm-12">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-1 col-sm-1 col-md-1">
+
+                <img src="~/Content/img/appointment-icon.png" class="midIcon hvr-grow" />
+            </div>
+            <div class="col-lg-9 col-sm-9 col-md-9">
+                <p>
+                    Doctors who uses <b><span class="brandColor hvr-underline-reveal">MEDIYARD</span></b> can be searched by specialization. Appointmentment process to this doctors are automated by our system.<br />
+                    Place your appointment here after selecting your desired medical consultation personnel.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 mainPanel ">
+            <div class="text-center">
+                <img class="bigIcon" src="~/Content/img/doctor-suitecase-xxl.png" />
+                <h1 style="">@Html.DisplayFor(m => m.Name)</h1>
+
+                <span class="glyphicon glyphicon-flag"></span> <span style="font-size:14px;color:#2098d1;">@Html.DisplayFor(m => m.spec.SpecName)</span>
+                <br />
+                <span class="glyphicon glyphicon-road "></span> <span class="midText">@Html.DisplayFor(m => m.PracticingAddress)</span>
+                <br />
+                <br />
+                <br />
+                <span class="label label-success" style="font-size:16px;padding-top:1%;padding-bottom:1%;">Consultation Fee @Html.DisplayFor(m => m.Fees) Tk</span>
+                <br />
+                <br />
+
+            </div>
+
+            <div ng-app="" class="text-left well">
+                
+                <span ><input type="checkbox"  ng-model="notchecked" style="margin-right:1%;" />By placing an appointment you agree to the <a>terms & conditions</a> of our site.</span>
+                
+
+                
+                
+                <a href ="@Url.Action("PatientVerify")" class="btn btn-info pull-right" ng-disabled="!notchecked"><span class="glyphicon glyphicon-pencil"></span>Place an Appointment</a>
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+        @* end of mainpanel *@
+        
+        
+        <div>
+
+
+            @* Star Widget *@
+            <img style="height:5%; width:5%;" src="~/Content/img/star.png" />
+            <img style="height:5%; width:5%;" src="~/Content/img/star.png" />
+            <img style="height:5%; width:5%;" src="~/Content/img/star.png" />
+            <img style="height:5%; width:5%;" src="~/Content/img/star.png" />
+            <img style="height:5%; width:5%;" src="~/Content/img/star.png" />
+            <br />
+            5/5 Stars Awarded
+        </div>
+    </div>
+
+
+    
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,20 +28,20 @@
             <header class="row header">
 
                 <a href="#" class="header__icon" id="header__icon"></a>
-                <a href="#" class="header__logo" style="margin-left:17%;text-decoration:none;"><h1><b>MEDIYARD</b></h1></a>
+                <a href="@Url.Action("Index","Home",new { area="Global" })" class="header__logo" style="margin-left:17%;text-decoration:none;"><h1><b>MEDIYARD</b></h1></a>
 
                 <nav class="menu nav navbar-left" style="margin-right:20%;">
                     <a href="#" style="text-decoration:none;">Home</a>
                     <a href="#" style="text-decoration:none;">About Us</a>
                     <a href="#" style="text-decoration:none;">Doctor's Blog</a>
                     <a href="#" style="text-decoration:none;">Contact Us</a>
-                    
+
 
                 </nav>
-                
+
             </header>
-            <div class="spacer row"> </div>
-            
+            <div class="spacer col-lg-12 col-sm-12 col-md-12"> </div>
+
             @RenderBody()
             <div class="site-cache" id="site-cache"></div>
         </div>
@@ -52,7 +52,7 @@
         $(document).ready(function () {
 
             (function ($) {
-                
+
 
                 $('#header__icon').click(function (e) {
                     e.preventDefault();
@@ -76,12 +76,12 @@
 
 
         function closeOverlay() {
-            
+
             $(".loginPopUp").removeClass("bounceIn");
             $(".loginPopUp").addClass("bounceOut");
             $("#overlay").addClass("animated");
             //$("#overlay").addClass("fadeOut");
-            
+
             $("#overlay").css("display", "none");
         }
 
@@ -91,7 +91,7 @@
 
 
     <div id="overlay" onclick="closeOverlay()">
-        
+
     </div>
 
 </body>
