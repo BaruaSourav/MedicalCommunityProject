@@ -32,7 +32,7 @@ namespace BLLayerMedCom
 
         public List<Patient> getPatientList(int superVisorID)
         {
-            var filteredPatients=uw.PatientRepository.Get(filter: d => d.Supervisor.Equals(superVisorID));
+            var filteredPatients=uw.PatientRepository.Get(filter: d => d.Supervisor==superVisorID);
             return filteredPatients.ToList();
 
         }
