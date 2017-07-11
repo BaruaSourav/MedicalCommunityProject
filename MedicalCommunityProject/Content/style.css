@@ -1408,3 +1408,7 @@ input[type=text].ng-invalid:hover {
 .heavyPadding{
     padding:20% 20% 20% 20%;
 }
+.headertextnew{
+    color: #2098D1;
+    margin-left:5px;
+}

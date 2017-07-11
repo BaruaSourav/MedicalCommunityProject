@@ -150,12 +150,12 @@ namespace BLLayerMedCom
                 DCardList.Add(new DocCardInfoVM
                 {
                     Fees = doctor.ConsFee.GetValueOrDefault(),
-                    region = doctor.Region,
+                    //region = doctor.Region,
                     Name = "Dr. " + doctor.FirstName.ToUpper().Substring(0, 1) + doctor.FirstName.Substring(1).ToLower() + " " + doctor.LastName.ToUpper().Substring(0, 1) + doctor.LastName.ToLower().Substring(1),
                     PracticingAddress = textInfo.ToTitleCase(doctor.practicingAddress ?? "No Address Given"),
                     isOnline = doctor.isOnline,
                     totalPatients = TotalPatientByDoc(doctor),
-                    spec = doctor.Specialization,
+                    spec = doctor.Specialization.SpecName,
                     id=doctor.DocID
 
                 });
@@ -172,12 +172,12 @@ namespace BLLayerMedCom
             return new DocCardInfoVM
             {
                 Fees = doctor.ConsFee.GetValueOrDefault(),
-                region = doctor.Region,
+                //region = doctor.Region,
                 Name = "Dr. " + doctor.FirstName.ToUpper().Substring(0, 1) + doctor.FirstName.Substring(1).ToLower() + " " + doctor.LastName.ToUpper().Substring(0, 1) + doctor.LastName.ToLower().Substring(1),
                 PracticingAddress = textInfo.ToTitleCase(doctor.practicingAddress ?? "No Address Given"),
                 isOnline = doctor.isOnline,
                 totalPatients = TotalPatientByDoc(doctor),
-                spec = doctor.Specialization,
+                spec = doctor.Specialization.SpecName,
                 id = doctor.DocID
 
             };

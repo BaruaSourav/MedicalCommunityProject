@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Add Appointment";
+    Layout = "~/Areas/Patients/Views/Shared/_PatientLayout.cshtml";
+}
+
+@section scripts{ 
+<script type="text/javascript">
+    $(document).ready(function () {
+        // getting the source
+        var source =
+            {
+                datatype: "json",
+                datafields: [
+					 { name: 'Name', type: 'string' },
+					 { name: 'Fees', type: 'int' },
+					 { name: 'isOnline' },
+					 { name: 'PracticingAddress', type: 'string' },
+					 { name: 'totalPatients', type: 'int' },
+                     { name:'spec',type:'string'}
+                ],
+                url: '@Url.Action("getDocInfo", "Appointment", new { Area = "Patients" })'
+            };
+        var dataAdapter = new $.jqx.dataAdapter(source);
+        // initialize jqxGrid
+        $("#docGrid").jqxGrid(
+            {
+                theme:'darkblue',
+                width: '95%',
+                source: dataAdapter,
+                autorowheight: true,
+                autoheight:false,
+                pageable:true,
+                columns: [
+                    { text: "Name", datafield: "Name" ,width:"20%"},
+                    { text: "Fees (Taka)", datafield: "Fees"},
+                    { text: "Chamber", datafield: "PracticingAddress" },
+                    { text: "Crowd", datafield: "totalPatients",width:"8%" },
+                    { text: "Specialization", datafield: "spec" }
+                    
+                ],
+                sortable:true
+            });
+    });
+</script>
+
+}
+<div class="row">
+    <div class="col-lg-6 col-md-6">
+
+    </div>
+    <div class="col-lg-6 col-md-6" >
+        <div id="docGrid"></div>
+
+    </div>
+</div>
+

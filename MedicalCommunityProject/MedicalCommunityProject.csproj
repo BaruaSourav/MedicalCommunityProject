@@ -249,6 +249,7 @@
     <Content Include="Areas\Patients\Views\Appointment\DoctorInfo.cshtml" />
     <Content Include="Areas\Patients\Views\Appointment\PatientVerify.cshtml" />
     <Content Include="Content\Thumbs.db" />
+    <Content Include="Areas\Patients\Views\Appointment\DoctorsListView.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-table.js" />

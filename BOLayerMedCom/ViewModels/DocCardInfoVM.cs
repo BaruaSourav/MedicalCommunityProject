@@ -17,23 +17,23 @@ namespace BOLayerMedCom.ViewModels
         public bool isOnline { get; set; }
         public String PracticingAddress { get; set; }
         public int totalPatients { get; set; }
-        public Specialization spec { get; set; }
+        public String spec { get; set; }
 
 
-        public Region region
-        {
-            //Need to Change ----- 
-            get; set;
-        }
-        public String district{
+        //public Region region
+        //{
+        //    //Need to Change ----- 
+        //    get; set;
+        //}
+        //public String district{
 
-            get
-            {
-                return region.District.DistrictName;
-            }
+        //    get
+        //    {
+        //        return region.District.DistrictName;
+        //    }
             
 
-        }
+        //}
 
 
 

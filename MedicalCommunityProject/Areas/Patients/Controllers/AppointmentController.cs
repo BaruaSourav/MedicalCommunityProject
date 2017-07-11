@@ -6,17 +6,34 @@ using System.Web.Mvc;
 using BOLayerMedCom;
 using BLLayerMedCom;
 using BOLayerMedCom.ViewModels;
+
+
 namespace MedicalCommunityProject.Areas.Patients.Controllers
 {
     public class AppointmentController : Controller
     {
         public MediyardDBEntities1 context = new MediyardDBEntities1();
+        
         // GET: Patients/Appointment
+        public ActionResult Index()
+        {
+            return View("DoctorsListView");
+        }
+        
 
+        public JsonResult getDocInfo()
+        {
+            DoctorsBL dbl = new DoctorsBL(context);
+            var doclist = dbl.getAll();
+            var docCardList = (IEnumerable<DocCardInfoVM>)dbl.getDocCardList(doclist);
+            return Json(docCardList, JsonRequestBehavior.AllowGet);
 
+        }
+
+        
         //public ActionResult Index(String sortby = null, String searchText = null,int? spec=null)
         //{
-           
+
         //    DoctorsBL dbl= new DoctorsBL(context);
         //    List<Specialization> specList = context.Specializations.ToList();
         //    List<String> sortbylist =
@@ -52,13 +69,13 @@ namespace MedicalCommunityProject.Areas.Patients.Controllers
 
 
 
-            
+
         //}
         //[HttpGet]
         //public ActionResult DoctorInfo(int id)
         //{
         //    Session["appDocID"] = id;
-        //    DoctorsBL dbl=new DoctorsBL(context);
+        //    DoctorsBL dbl = new DoctorsBL(context);
         //    DocCardInfoVM model = dbl.docVMfromDoc(context.Doctors.Find(id));
 
         //    return View(model);

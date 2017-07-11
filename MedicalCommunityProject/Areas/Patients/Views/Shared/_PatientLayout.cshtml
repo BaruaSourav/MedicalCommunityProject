@@ -15,87 +15,25 @@
     <link href="~/Content/styles.css" rel="stylesheet" />
     <script src="~/Scripts/lumino.glyphs.js"></script>
     <link href="~/Content/HoverCSS/Hover.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="http://jqwidgets.com/jquery-widgets-demo/jqwidgets/jqx-all.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://jqwidgets.com/jquery-widgets-demo/jqwidgets/styles/jqx.base.css" />
-    <title>@ViewBag.Title</title>
-</head>
-<body id="body">
-    @* Absolute div *@
-    <div id="absoluteDiv" style-="position:absolute;">
 
-    </div>
-    <div class="row site-container">
-        <div class="col-lg-12 col-sm-12 col-md-12 site-pusher">
-
-            <header class="row header">
-
-                <a href="#" class="header__icon" id="header__icon"></a>
-                <a href="@Url.Action("Index","Home",new { area="Global" })" class="header__logo" style="margin-left:17%;text-decoration:none;"><h1><b>MEDIYARD</b></h1></a>
-
-                <nav class="menu nav navbar-left" style="margin-right:20%;">
-                    <a href="#" style="text-decoration:none;">Home</a>
-                    <a href="#" style="text-decoration:none;">About Us</a>
-                    <a href="#" style="text-decoration:none;">Doctor's Blog</a>
-                    <a href="#" style="text-decoration:none;">Contact Us</a>
-
-
-                </nav>
-
-            </header>
-            <div class="spacer col-lg-12 col-sm-12 col-md-12"> </div>
-
-            @RenderBody()
-            <div class="site-cache" id="site-cache"></div>
-        </div>
-    </div><!--Site-container-->
-
+    
+    <link rel="stylesheet" type="text/css" href="~/Content/jqx.base.css" />
+    <link href="~/Content/jqx.darkblue.css" rel="stylesheet" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
+    <script type="text/javascript" src="~/Scripts/jqx-all.js"></script>
+    @RenderSection("scripts")
+    <title>@ViewBag.Title</title>
 
-            (function ($) {
+</head>
 
-
-                $('#header__icon').click(function (e) {
-                    e.preventDefault();
-                    $('body').toggleClass('with--sidebar');
-                });
-
-                $('#site-cache').click(function (e) {
-                    $('body').removeClass('with--sidebar');
-                });
-
-            })(jQuery);
-
-        });
-
-
-
-
-        function adminLoginOverlay() {
-            $("#overlay").css("display","block");
-        }
-
-
-        function closeOverlay() {
-
-            $(".loginPopUp").removeClass("bounceIn");
-            $(".loginPopUp").addClass("bounceOut");
-            $("#overlay").addClass("animated");
-            //$("#overlay").addClass("fadeOut");
-
-            $("#overlay").css("display", "none");
-        }
-
-    </script>
-
-
-
-
-    <div id="overlay" onclick="closeOverlay()">
-
+<body>
+    <div class="page-header" >
+        <h1 class="headertextnew">MEDIYARD Patient Panel</h1>
     </div>
 
+    @RenderBody()
+            
+    
 </body>
 
 
