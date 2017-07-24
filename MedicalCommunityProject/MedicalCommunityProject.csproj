@@ -141,6 +141,7 @@
     <Content Include="Content\img\address-512.png" />
     <Content Include="Content\img\adminImg.png" />
     <Content Include="Content\img\appointment-icon.png" />
+    <Content Include="Content\img\Audience.png" />
     <Content Include="Content\img\backgroundTop.png" />
     <Content Include="Content\img\backImage.png" />
     <Content Include="Content\img\banimg1.jpg" />
@@ -182,6 +183,7 @@
     <Content Include="Content\img\dragcancel.png" />
     <Content Include="Content\img\error.png" />
     <Content Include="Content\img\filter.png" />
+    <Content Include="Content\img\green-circle-md.png" />
     <Content Include="Content\img\html_editor.png" />
     <Content Include="Content\img\html_editor_white.png" />
     <Content Include="Content\img\icon-calendar-light.png" />
@@ -286,6 +288,7 @@
     <Content Include="Content\img\rangebar_darkblue.png" />
     <Content Include="Content\img\rangebar_shinyblack.png" />
     <Content Include="Content\img\rangebar_summer.png" />
+    <Content Include="Content\img\red-circle-md.png" />
     <Content Include="Content\img\red_arrow_down.png" />
     <Content Include="Content\img\red_arrow_up.png" />
     <Content Include="Content\img\red_gradient.png" />
@@ -312,6 +315,7 @@
     <Content Include="Content\img\success.png" />
     <Content Include="Content\img\tick.png" />
     <Content Include="Content\img\time.png" />
+    <Content Include="Content\img\tk.png" />
     <Content Include="Content\img\track_classic.png" />
     <Content Include="Content\img\track_darkblue.png" />
     <Content Include="Content\img\track_shinyblack.png" />
