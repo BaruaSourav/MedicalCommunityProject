@@ -19,6 +19,7 @@ namespace BOLayerMedCom
         {
             this.Appointments = new HashSet<Appointment>();
             this.Patients = new HashSet<Patient>();
+            this.schedules = new HashSet<schedule>();
         }
     
         public int DocID { get; set; }
@@ -36,6 +37,7 @@ namespace BOLayerMedCom
         public string practicingAddress { get; set; }
         public Nullable<int> ConsFee { get; set; }
         public Nullable<int> specID { get; set; }
+        public Nullable<int> rating { get; set; }
     
         public virtual Region Region { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -43,5 +45,7 @@ namespace BOLayerMedCom
         public virtual Specialization Specialization { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Patient> Patients { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<schedule> schedules { get; set; }
     }
 }

@@ -19,6 +19,8 @@
         <EntityTypeShape EntityType="MediyardDBModel.Patient" Width="1.5" PointX="3.5" PointY="4.5" />
         <AssociationConnector Association="MediyardDBModel.FK_Appointment_Patient" />
         <AssociationConnector Association="MediyardDBModel.FK_Patient_Doctor" />
+        <EntityTypeShape EntityType="MediyardDBModel.schedule" Width="1.5" PointX="13.125" PointY="2.375" />
+        <AssociationConnector Association="MediyardDBModel.FK_schedule_Doctor" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

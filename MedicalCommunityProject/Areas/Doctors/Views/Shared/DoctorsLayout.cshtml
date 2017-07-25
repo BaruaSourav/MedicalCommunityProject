@@ -2,32 +2,30 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
-
-    <link href="~/Content/style.css" rel="stylesheet" />
-
-    <link href="~/Content/MenuAnim/style7.css" rel="stylesheet" />
-
-    <link href="~/Content/MenuAnim/common.css" rel="stylesheet" />
-    <link href="~/Content/AnimateCSS/animate.css" rel="stylesheet" />
-    <link href="~/Content/MenuAnim/normalize.css" rel="stylesheet" />
-
-    <link href="~/Content/MenuAnim/demo.css" rel="stylesheet" />
-
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-
-    <script src="~/Scripts/jquery.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-
-    <script src="~/Scripts/bootstrap.js"></script>
-
     
 
-    <link href="~/Content/MenuAnim/hover-min.css" rel="stylesheet" />
-    <title>@ViewBag.Title</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script type="text/javascript" src="~/Scripts/jquery.js"></script>
+    <link href="~/Content/AnimateCSS/animate.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Scripts/angular.js"></script>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+
+    <link href="~/Content/HoverCSS/Hover.min.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 
+    <link rel="stylesheet" type="text/css" href="~/Content/jqx.base.css" />
+    <link href="~/Content/jqx.darkblue.css" rel="stylesheet" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jqx-all.js"></script>
+   
+    @RenderSection("scripts")
+    <title>Mediyard Doctor Profile</title>
 </head>
 <body>
     <div class="site-container" style="background-color:whitesmoke">
@@ -49,9 +47,9 @@
 
             <div class="site-content">
                 <div style="height:100%; width:100%; z-index:2; overflow:hidden;">
-                    <div class="sidebar-nav" style="height: 100%;">
+                    <div class="sidebar-nav col-lg-3">
                         <div class="sideNavBG">
-                            <ul class="nav normalNav text-left" style="padding-top:55%;padding-left:25%; padding-bottom:40%;">
+                            <ul class="nav normalNav text-left" style="padding-top:55%;padding-left:25%; padding-bottom:5%;">
                                 <span class="glyphicon glyphicon-envelope btn-lg"></span>
                                 <a href="#" class="hvr-float-shadow" style="font-size:25px;"><b>Messages</b></a>
                                 <br />
@@ -95,8 +93,8 @@
                     @RenderBody()
                 </div>
             </div>
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-            <script src="~/Scripts/modernizr.custom.79639.js"></script>
+            
+            
             <script>
                 $(document).ready(function () {
 
@@ -121,6 +119,89 @@
                     $('[data-toggle="tooltip"]').tooltip();
                 });
             </script>
+    <footer>
+        <div class="footer" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                        <h3> Mediyard Doctor's Panel </h3>
+                        <ul>
+                            <li> <a href="#"> Login As Doctor</a> </li>
+                            <li> <a href="#"> Doctor's Blog </a> </li>
+                            <li> <a href="#"> Medicine Reference</a> </li>
+                            <li> <a href="#"> EHR helpline for doctors </a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                        <h3> Mediyard Patient Panel </h3>
+                        <ul>
+                            <li> <a href="#"> Patient's personal Diagnosis </a> </li>
+                            <li> <a href="#"> Search for doctors </a> </li>
+                            <li> <a href="#"> Medicine Reference </a> </li>
+                            <li> <a href="#"> EHR helpline for Patients </a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                        <h3> Mediyard Common </h3>
+                        <ul>
+                            <li> <a href="#"> Who we are </a> </li>
+                            <li> <a href="#"> Our mission & Vision </a> </li>
+                            <li> <a href="#"> Area wise disease reports </a> </li>
+                            <li> <a href="#"> Our Achievements </a> </li>
+                            <li> <a href="@Url.Action("Index","Home",new {area="Global" })"> Mediyard Home </a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                        @*<h3> Lorem Ipsum </h3>
+                            <ul>
+                                <li> <a href="#"> Lorem Ipsum </a> </li>
+                                <li> <a href="#"> Lorem Ipsum </a> </li>
+                                <li> <a href="#"> Lorem Ipsum </a> </li>
+                                <li> <a href="#"> Lorem Ipsum </a> </li>
+                            </ul>*@
+                    </div>
+                    <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
+                        <h3> Subscribe for MediNews Alerts </h3>
+                        <ul>
+                            <li>
+                                <div class="input-append newsletter-box text-center">
+                                    <input type="text" style="margin-bottom:5px;" class="full text-center" placeholder="Email ">
+
+                                    <button class="btn  btn-success" type="button"> Subscribe <i class="fa fa-long-arrow-right"> </i> </button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="social">
+                            <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+                            <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
+                            <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
+                            <li> <a href="#"> <i class="fa fa-pinterest">   </i> </a> </li>
+                            <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+                        </ul>
+                    </div>
+                </div>
+                @*<div class="pull-right">
+                        <ul class="nav nav-pills payments">
+                            <li><i class="fa fa-cc-visa"></i></li>
+                            <li><i class="fa fa-cc-mastercard"></i></li>
+                            <li><i class="fa fa-cc-amex"></i></li>
+                            <li><i class="fa fa-cc-paypal"></i></li>
+                        </ul>
+                    </div>*@
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </div>
+        <!--/.footer-->
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p style="color:white;" class="pull-left"> Copyright © Sourav Barua. All rights reserved. </p>
+
+            </div>
+        </div>
+        <!--/.footer-bottom-->
+    </footer>
 </body>
 
 </html>

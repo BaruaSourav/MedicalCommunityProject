@@ -4,6 +4,10 @@
     ViewBag.Title = "PatientList";
     Layout = "~/Areas/Doctors/Views/Shared/DoctorsLayout.cshtml";
 }
+
+@section scripts{
+    
+    }
 <div id="hiddenFormDiv">
     @Html.Partial("~/Areas/Doctors/Views/Partials/AddPatientPartial.cshtml", new BOLayerMedCom.ViewModels.PatientVM());
 

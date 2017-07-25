@@ -53,6 +53,7 @@
           <Property Name="practicingAddress" Type="varchar" MaxLength="100" />
           <Property Name="ConsFee" Type="int" />
           <Property Name="specID" Type="int" />
+          <Property Name="rating" Type="int" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
@@ -75,6 +76,16 @@
           <Property Name="RegionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RegionName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DistrictID" Type="int" />
+        </EntityType>
+        <EntityType Name="schedule">
+          <Key>
+            <PropertyRef Name="scheduleID" />
+          </Key>
+          <Property Name="scheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="doctorID" Type="int" Nullable="false" />
+          <Property Name="fromtime" Type="time" Precision="7" />
+          <Property Name="toTime" Type="time" Precision="7" />
+          <Property Name="threshold" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Specialization">
           <Key>
@@ -143,6 +154,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_schedule_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="schedule" Type="Self.schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="DocID" />
+            </Principal>
+            <Dependent Role="schedule">
+              <PropertyRef Name="doctorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblDoctors_tblRegion1">
           <End Role="Region" Type="Self.Region" Multiplicity="1" />
           <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
@@ -174,6 +197,7 @@
           <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="schedule" EntityType="Self.schedule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Admin_District" Association="Self.FK_Admin_District">
             <End Role="District" EntitySet="District" />
@@ -194,6 +218,10 @@
           <AssociationSet Name="FK_Patient_Doctor" Association="Self.FK_Patient_Doctor">
             <End Role="Doctor" EntitySet="Doctor" />
             <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_schedule_Doctor" Association="Self.FK_schedule_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="schedule" EntitySet="schedule" />
           </AssociationSet>
           <AssociationSet Name="FK_tblDoctors_tblRegion1" Association="Self.FK_tblDoctors_tblRegion1">
             <End Role="Region" EntitySet="Region" />
@@ -240,6 +268,8 @@
           <NavigationProperty Name="Appointments" Relationship="MediyardDBModel.FK_Appointment_Doctor" FromRole="Doctor" ToRole="Appointment" />
           <NavigationProperty Name="Specialization" Relationship="MediyardDBModel.FK_Doctor_Doctor" FromRole="Doctor" ToRole="Specialization" />
           <NavigationProperty Name="Patients" Relationship="MediyardDBModel.FK_Patient_Doctor" FromRole="Doctor" ToRole="Patient" />
+          <Property Name="rating" Type="Int32" />
+          <NavigationProperty Name="schedules" Relationship="MediyardDBModel.FK_schedule_Doctor" FromRole="Doctor" ToRole="schedule" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
@@ -310,6 +340,11 @@
           <AssociationSet Name="FK_Patient_Doctor" Association="MediyardDBModel.FK_Patient_Doctor">
             <End Role="Doctor" EntitySet="Doctors" />
             <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <EntitySet Name="schedules" EntityType="MediyardDBModel.schedule" />
+          <AssociationSet Name="FK_schedule_Doctor" Association="MediyardDBModel.FK_schedule_Doctor">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="schedule" EntitySet="schedules" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Admin">
@@ -421,6 +456,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="schedule">
+          <Key>
+            <PropertyRef Name="scheduleID" />
+          </Key>
+          <Property Name="scheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="doctorID" Type="Int32" Nullable="false" />
+          <Property Name="fromtime" Type="Time" Precision="7" />
+          <Property Name="toTime" Type="Time" Precision="7" />
+          <Property Name="threshold" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Doctor" Relationship="MediyardDBModel.FK_schedule_Doctor" FromRole="schedule" ToRole="Doctor" />
+        </EntityType>
+        <Association Name="FK_schedule_Doctor">
+          <End Type="MediyardDBModel.Doctor" Role="Doctor" Multiplicity="1" />
+          <End Type="MediyardDBModel.schedule" Role="schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="DocID" />
+            </Principal>
+            <Dependent Role="schedule">
+              <PropertyRef Name="doctorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -438,6 +496,7 @@
           <EntitySetMapping Name="Doctors">
             <EntityTypeMapping TypeName="MediyardDBModel.Doctor">
               <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="rating" ColumnName="rating" />
                 <ScalarProperty Name="specID" ColumnName="specID" />
                 <ScalarProperty Name="ConsFee" ColumnName="ConsFee" />
                 <ScalarProperty Name="practicingAddress" ColumnName="practicingAddress" />
@@ -509,6 +568,17 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="schedules">
+            <EntityTypeMapping TypeName="MediyardDBModel.schedule">
+              <MappingFragment StoreEntitySet="schedule">
+                <ScalarProperty Name="threshold" ColumnName="threshold" />
+                <ScalarProperty Name="toTime" ColumnName="toTime" />
+                <ScalarProperty Name="fromtime" ColumnName="fromtime" />
+                <ScalarProperty Name="doctorID" ColumnName="doctorID" />
+                <ScalarProperty Name="scheduleID" ColumnName="scheduleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

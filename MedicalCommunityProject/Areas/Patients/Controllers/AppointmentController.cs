@@ -31,6 +31,8 @@ namespace MedicalCommunityProject.Areas.Patients.Controllers
         }
 
         
+
+        
         //public ActionResult Index(String sortby = null, String searchText = null,int? spec=null)
         //{
 
