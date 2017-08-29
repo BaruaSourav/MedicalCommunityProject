@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Comment CommentText="Business Objects">
+    <Position X="4.112" Y="6.282" Height="0.439" Width="0.7" />
+  </Comment>
+  <Comment CommentText="ViewModels">
+    <Position X="11.25" Y="4.97" Height="0.319" Width="0.981" />
+  </Comment>
+  <Class Name="BOLayerMedCom.MediyardDBEntities1" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAQAAUAAAAABABgAAAAAAAEA=</HashCode>
+      <FileName>MedComDBEntityContext.Context.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Districts" />
+      <Property Name="Admins" />
+      <Property Name="Appointments" />
+      <Property Name="Doctors" />
+      <Property Name="Patients" />
+      <Property Name="Regions" />
+      <Property Name="schedules" />
+      <Property Name="Specializations" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BOLayerMedCom.Admin" Collapsed="true">
+    <Position X="5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAUAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAhEAAAg=</HashCode>
+      <FileName>Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BOLayerMedCom.Appointment" Collapsed="true">
+    <Position X="3.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAQAACAAAAAAAAAQAAAAAAAQBAAAAAAAAKAA=</HashCode>
+      <FileName>Appointment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BOLayerMedCom.District" Collapsed="true">
+    <Position X="5.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAABAAAAA=</HashCode>
+      <FileName>District.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BOLayerMedCom.Doctor" Collapsed="true">
+    <Position X="1.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAgEAAiCAAQAAAAQIAAJAAQQACAABCBAAAAAAAEEg=</HashCode>
+      <FileName>Doctor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BOLayerMedCom.Patient" Collapsed="true">
+    <Position X="3.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIEAAASAgAAIACAAAAAAAQAAAAAQAAAAAAAAAEAg=</HashCode>
+      <FileName>Patient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BOLayerMedCom.Region" Collapsed="true">
+    <Position X="3.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAgAQAAAAAAAAAAAAAAAAAAAAgAAABAAAAA=</HashCode>
+      <FileName>Region.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BOLayerMedCom.schedule" Collapsed="true">
+    <Position X="1.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAgAAABAAAAAAAAAAAAAACQAAAAAAAAAAIA=</HashCode>
+      <FileName>schedule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BOLayerMedCom.Specialization" Collapsed="true">
+    <Position X="3.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAQAAgAAAAAAAAA=</HashCode>
+      <FileName>Specialization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BOLayerMedCom.ViewModels.appvm" Collapsed="true">
+    <Position X="11" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\appvm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BOLayerMedCom.ViewModels.DocCardInfoVM" Collapsed="true">
+    <Position X="11" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAIQCAAAAAAAAAAAAAAAACkA=</HashCode>
+      <FileName>ViewModels\DocCardInfoVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BOLayerMedCom.ViewModels.DocProfileVM" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAIQCAAAAAAAAAAAAAAAACkA=</HashCode>
+      <FileName>ViewModels\DocProfileVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BOLayerMedCom.ViewModels.PatientVM" Collapsed="true">
+    <Position X="11" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAg=</HashCode>
+      <FileName>ViewModels\PatientVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BOLayerMedCom.ViewModels.UserVM" Collapsed="true">
+    <Position X="11" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEAAAA=</HashCode>
+      <FileName>ViewModels\UserVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Data.Entity.DbContext" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

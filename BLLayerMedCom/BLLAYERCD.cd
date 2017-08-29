@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Data Acces Layer's &#xD;&#xA;Unit of Work's instance">
+    <Position X="10.208" Y="4.115" Height="0.479" Width="1.617" />
+  </Comment>
+  <Class Name="BLLayerMedCom.AdminBL">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <AssociationLine Name="uw" Type="DALayerMedCom.UnitOfWork" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.75" Y="4.074" />
+        <Point X="1.75" Y="5.863" />
+        <Point X="10.938" Y="5.863" />
+        <Point X="10.938" Y="3.651" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAQAAAAAAIAEAAAABAAAAAAAAAAAIAA=</HashCode>
+      <FileName>AdminBL.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="uw" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BLLayerMedCom.DistrictBL">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <AssociationLine Name="uw" Type="DALayerMedCom.UnitOfWork" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.5" Y="1.75" />
+        <Point X="3.5" Y="0.125" />
+        <Point X="9.927" Y="0.125" />
+        <Point X="9.927" Y="0.544" />
+        <Point X="10.25" Y="0.544" />
+        <Point X="10.25" Y="0.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.714" Y="0.435" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DistrictBL.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="uw" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BLLayerMedCom.DoctorsBL">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABgAAAAAAAAAAAABQAABAAAABgAIIQAAAAIAIAA=</HashCode>
+      <FileName>DoctorsBL.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="uw" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BLLayerMedCom.PatientsBL">
+    <Position X="4.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAJAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PatientsBL.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="uw" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BLLayerMedCom.RegionsBL">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAgAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RegionsBL.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="uw" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DALayerMedCom.UnitOfWork">
+    <Position X="10.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

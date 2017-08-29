@@ -104,6 +104,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MedComDBEntityContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="BOlayerCD.cd" />
     <None Include="MedComDBEntityContext.edmx.diagram">
       <DependentUpon>MedComDBEntityContext.edmx</DependentUpon>
     </None>

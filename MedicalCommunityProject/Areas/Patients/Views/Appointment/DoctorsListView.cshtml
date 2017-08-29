@@ -7,10 +7,12 @@
 @section scripts{ 
 <script type="text/javascript">
     $(document).ready(function () {
-        //hide on/off button
-        $("#online").hide();
-        $("#offline").hide();
-        // getting the source
+
+
+        $("#search").jqxInput({ placeHolder: "Doctor's Name", height: 35, width: 200, minLength: 1 });
+        // getting the doctors source
+       
+
         var source =
             {
                 datatype: "json",
@@ -20,10 +22,30 @@
 					 { name: 'isOnline' },
 					 { name: 'PracticingAddress', type: 'string' },
 					 { name: 'totalPatients', type: 'int' },
-                     { name:'spec',type:'string'}
+                     { name: 'spec', type: 'string' }
                 ],
-                url: '@Url.Action("getDocInfo", "Appointment", new { Area = "Patients" })'
+                url: '@Url.Action("getDocInfo", "Appointment", new { Area = "Patients" })',
+                async:true
+                
             };
+
+
+
+       
+
+        $('#searchbtn').click(function () {
+            var value = $('#search').jqxInput('val');
+            //alert(value);
+            addfilter(value);
+        });
+       
+
+
+
+        //hide on/off button
+        $("#online").hide();
+        $("#offline").hide();
+        
         var dataAdapter = new $.jqx.dataAdapter(source);
         // initialize jqxGrid
         $("#docGrid").jqxGrid(
@@ -34,7 +56,9 @@
                 
                 height: '100%',
                 pageable: true,
-                autorowheight:true,
+                autorowheight: true,
+                filterable:true,
+                
                
                 columns: [
                     { text: "Name", datafield: "Name" ,width:"20%"},
@@ -44,8 +68,25 @@
                     { text: "Specialization", datafield: "spec" }
                     
                 ],
-                sortable:true
+                sortable: true
+            
             });
+
+
+        var addfilter = function (filterval) {
+            var filtergroup = new $.jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = filterval;
+            var filtercondition = 'contains';
+            var filter = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+
+            filtergroup.addfilter(filter_or_operator, filter);
+            // add the filters.
+            console.log(filtergroup);
+            $("#docGrid").jqxGrid('addfilter','Name', filtergroup);
+            // apply the filters.
+            $("#docGrid").jqxGrid('applyfilters');
+        };
 
         //All tooltips
         $('#crowd').jqxTooltip({ position: 'right', content: 'How many patients are enrolled under this doctor?',theme: 'darkblue' });
@@ -155,7 +196,7 @@
 </div>
 </div>
 <div class="row">
-    <div class="row col-lg-4 col-md-4">
+    <div class="row col-lg-4 col-md-4 col-sm-12">
 
         <div id ="bannerCarousel" class="col carousel slide" data-ride="carousel" style="margin-left:10%;margin-right:10%;width:80%;" >
             
@@ -211,7 +252,13 @@
 
         </div>
     </div>
-    <div class="col-lg-8 col-md-8" >
+    <div class="col-lg-8 col-md-8 col-sm-12" >
+        <div class="searchBar well"  id="searchBar">
+            <input id="search" type="text"/>
+            <input type="button" style="margin: 10px;" id="searchbtn" value="Search" />
+            
+        </div>
+
         <div id="docGrid"></div>
 
     </div>

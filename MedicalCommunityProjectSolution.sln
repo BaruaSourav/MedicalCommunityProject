@@ -11,6 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOLayerMedCom", "BOLayerMed
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLLayerMedCom", "BLLayerMedCom\BLLayerMedCom.csproj", "{63CDDBF5-90C3-4D67-803D-FAF572FFDD92}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Diagrams", "Diagrams", "{B8BDF176-9783-4A71-8B43-630087C1EED2}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\SOFTWARE PROJECT\Figures\DocActDiag.png = ..\..\..\..\SOFTWARE PROJECT\Figures\DocActDiag.png
+		..\..\..\..\SOFTWARE PROJECT\Figures\HighLEVELUSECase.png = ..\..\..\..\SOFTWARE PROJECT\Figures\HighLEVELUSECase.png
+		..\..\..\..\SOFTWARE PROJECT\Figures\PatientActDiag.png = ..\..\..\..\SOFTWARE PROJECT\Figures\PatientActDiag.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

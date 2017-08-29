@@ -1581,3 +1581,10 @@ input[type=text].ng-invalid:hover {
   margin-top: 0px;
   padding-left:122px;
 }
+
+/* Search Bar*/
+
+.searchBar{
+    width:95%;
+
+}

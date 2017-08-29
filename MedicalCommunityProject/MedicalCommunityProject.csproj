@@ -422,6 +422,7 @@
     <Content Include="Areas\Patients\Views\Appointment\Appointment.cshtml" />
     <Content Include="Areas\Doctors\Views\Profile\ProfileView.cshtml" />
     <Content Include="Areas\Doctors\Views\Partials\GenInfoProfile.cshtml" />
+    <Content Include="presLayerCD.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-table.js" />

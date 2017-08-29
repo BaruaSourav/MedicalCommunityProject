@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Base MVC Application">
+    <Position X="10.094" Y="4.552" Height="0.458" Width="1.304" />
+  </Comment>
+  <Comment CommentText="Registering all the areas">
+    <Position X="7.844" Y="4.385" Height="0.458" Width="1.304" />
+  </Comment>
+  <Comment CommentText="All controllers">
+    <Position X="3.323" Y="5.469" Height="0.375" Width="1.096" />
+  </Comment>
+  <Class Name="MedicalCommunityProject.App_Start.BundleConfig" Collapsed="true">
+    <Position X="10" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.RouteConfig" Collapsed="true">
+    <Position X="10" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.MvcApplication" Collapsed="true">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Admins.AdminAreaRegistration" Collapsed="true">
+    <Position X="7.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Admins\AdminAreaRegistration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Admins.Controllers.AdminDashController" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <InheritanceLine Type="System.Web.Mvc.Controller" FixedFromPoint="true">
+      <Path>
+        <Point X="2" Y="2.188" />
+        <Point X="3" Y="2.188" />
+        <Point X="3" Y="1.191" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAACACAAAACQAAAFAAAAAAAAAAAAAAAAAAEAIAAAAAA=</HashCode>
+      <FileName>Areas\Admins\Controllers\AdminDashController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Admins.Controllers.AdminListController" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <InheritanceLine Type="System.Web.Mvc.Controller" FixedFromPoint="true">
+      <Path>
+        <Point X="2" Y="2.188" />
+        <Point X="3.877" Y="2.188" />
+        <Point X="3.877" Y="0.846" />
+        <Point X="4" Y="0.846" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Admins\Controllers\AdminListController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Admins.Controllers.DistrictsController" Collapsed="true">
+    <Position X="2" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Admins\Controllers\DistrictsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Admins.Controllers.DoctorListController" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Admins\Controllers\DoctorListController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Admins.Controllers.PatientListController" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Admins\Controllers\PatientListController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Admins.Controllers.RegionListController" Collapsed="true">
+    <Position X="4" Y="4.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Admins\Controllers\RegionListController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Associates.AssociatesAreaRegistration" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Associates\AssociatesAreaRegistration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Doctors.Controllers.DoctorController" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAAAAAAAAAAAAgAAAABAAAAAAEQAAAAAAA=</HashCode>
+      <FileName>Areas\Doctors\Controllers\DoctorController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Doctors.Controllers.PatientViewController" Collapsed="true">
+    <Position X="2" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Doctors\Controllers\PatientViewController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Doctors.Controllers.ProfileController" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Doctors\Controllers\ProfileController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Doctors.DoctorsAreaRegistration" Collapsed="true">
+    <Position X="7.5" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Doctors\DoctorsAreaRegistration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Global.Controllers.HomeController" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAABAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Global\Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Global.GlobalAreaRegistration" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Global\GlobalAreaRegistration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Patients.Controllers.AppointmentController" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <InheritanceLine Type="System.Web.Mvc.Controller" FixedFromPoint="true">
+      <Path>
+        <Point X="2" Y="2.188" />
+        <Point X="5.627" Y="2.188" />
+        <Point X="5.627" Y="0.846" />
+        <Point X="5.75" Y="0.846" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>IAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Patients\Controllers\AppointmentController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalCommunityProject.Areas.Patients.PatientsAreaRegistration" Collapsed="true">
+    <Position X="7.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Patients\PatientsAreaRegistration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Web.HttpApplication" Collapsed="true">
+    <Position X="10" Y="1" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Web.Mvc.Controller" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
