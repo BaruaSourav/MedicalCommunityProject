@@ -1410,7 +1410,7 @@ input[type=text].ng-invalid:hover {
 }
 .headertextnew{
     color: #2098D1;
-    margin-left:5px;
+    text-align:center;
 }
 .carousel-indicators{
     top:95%;
