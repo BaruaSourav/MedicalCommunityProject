@@ -9,7 +9,7 @@
     $(document).ready(function () {
 
 
-        $("#search").jqxInput({ placeHolder: "Doctor's Name", height: 35, width: 200, minLength: 1 });
+        $("#search").jqxInput({ placeHolder: "Doctor's Name", height: 28, width: 200, minLength: 1,theme:'darkblue' });
         // getting the doctors source
        
 
@@ -24,16 +24,17 @@
 					 { name: 'totalPatients', type: 'int' },
                      { name: 'spec', type: 'string' }
                 ],
-                url: '@Url.Action("getDocInfo", "Appointment", new { Area = "Patients" })',
-                async:true
+                url: '@Url.Action("getDocInfo", "Appointment", new { Area = "Patients" })'
                 
             };
+
+        console.log(source);
 
 
 
        
 
-        $('#searchbtn').click(function () {
+        $('#search').on('keyup', function () {
             var value = $('#search').jqxInput('val');
             //alert(value);
             addfilter(value);
@@ -57,7 +58,6 @@
                 height: '100%',
                 pageable: true,
                 autorowheight: true,
-                filterable:true,
                 
                
                 columns: [
@@ -82,7 +82,7 @@
 
             filtergroup.addfilter(filter_or_operator, filter);
             // add the filters.
-            console.log(filtergroup);
+            //console.log(filtergroup);
             $("#docGrid").jqxGrid('addfilter','Name', filtergroup);
             // apply the filters.
             $("#docGrid").jqxGrid('applyfilters');
@@ -254,7 +254,7 @@
     </div>
     <div class="col-lg-8 col-md-8 col-sm-12" >
         <div class="searchBar well"  id="searchBar">
-            <input id="search" type="text"/>
+            <b style="margin-right:8px;">Name</b> <input id="search" type="text"/>
             <input type="button" style="margin: 10px;" id="searchbtn" value="Search" />
             
         </div>
