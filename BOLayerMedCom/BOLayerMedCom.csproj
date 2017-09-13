@@ -86,13 +86,9 @@
     <Compile Include="Region.cs">
       <DependentUpon>MedComDBEntityContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="schedule.cs">
-      <DependentUpon>MedComDBEntityContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="Specialization.cs">
       <DependentUpon>MedComDBEntityContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\appvm.cs" />
     <Compile Include="ViewModels\DocCardInfoVM.cs" />
     <Compile Include="ViewModels\DocProfileVM.cs" />
     <Compile Include="ViewModels\PatientVM.cs" />

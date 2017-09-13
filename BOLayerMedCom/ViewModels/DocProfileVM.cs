@@ -9,6 +9,8 @@ namespace BOLayerMedCom.ViewModels
 {
     public class DocProfileVM
     {
+
+
         [Key]
         public int id { get; set; }
 

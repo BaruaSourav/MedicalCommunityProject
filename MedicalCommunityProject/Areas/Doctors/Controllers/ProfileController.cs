@@ -20,7 +20,7 @@ namespace MedicalCommunityProject.Areas.Doctors.Controllers
             ViewBag.doctor = loggedInDoc;
             DocProfileVM profVM = dbl.docProfVMfromDoc(loggedInDoc);
             ViewBag.profile = profVM;
-            
+
             return View("ProfileView");
         }
     }

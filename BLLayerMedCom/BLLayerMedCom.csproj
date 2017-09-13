@@ -55,6 +55,9 @@
     <Compile Include="RegionsBL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BLLAYERCD.cd" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\BOLayerMedCom\BOLayerMedCom.csproj">
       <Project>{9d856eb2-1e73-4599-9faf-7a9cf332092d}</Project>
       <Name>BOLayerMedCom</Name>
@@ -63,9 +66,6 @@
       <Project>{cc5c6f38-e3db-4588-b236-0a61b4ed7b61}</Project>
       <Name>DALayerMedCom</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="BLLAYERCD.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

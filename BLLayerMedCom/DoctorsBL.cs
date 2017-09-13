@@ -182,6 +182,7 @@ namespace BLLayerMedCom
 
             };
         }
+
         public DocProfileVM docProfVMfromDoc(Doctor doctor)
         {
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
