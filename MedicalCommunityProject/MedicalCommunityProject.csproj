@@ -419,10 +419,6 @@
     <Content Include="Content\Thumbs.db" />
     <Content Include="Areas\Patients\Views\Appointment\DoctorsListView.cshtml" />
     <Content Include="Content\img\Thumbs.db" />
-    <Content Include="Areas\Patients\Views\Appointment\Appointment.cshtml" />
-    <Content Include="Areas\Doctors\Views\Profile\ProfileView.cshtml" />
-    <Content Include="Areas\Doctors\Views\Partials\GenInfoProfile.cshtml" />
-    <Content Include="presLayerCD.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-table.js" />
@@ -545,6 +541,7 @@
     <Content Include="Scripts\jqxtreemap.js" />
     <Content Include="Scripts\jqxvalidator.js" />
     <Content Include="Scripts\jqxwindow.js" />
+    <Content Include="Scripts\lumino.glyphs.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr.custom.79639.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -563,7 +560,6 @@
     <Compile Include="Areas\Associates\AssociatesAreaRegistration.cs" />
     <Compile Include="Areas\Doctors\Controllers\DoctorController.cs" />
     <Compile Include="Areas\Doctors\Controllers\PatientViewController.cs" />
-    <Compile Include="Areas\Doctors\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Doctors\DoctorsAreaRegistration.cs" />
     <Compile Include="Areas\Global\Controllers\HomeController.cs" />
     <Compile Include="Areas\Global\GlobalAreaRegistration.cs" />

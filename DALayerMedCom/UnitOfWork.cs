@@ -17,7 +17,6 @@ namespace DALayerMedCom
         private GenericRepository<Region> regionRepository;
         private GenericRepository<Patient> patientRepository;
         private GenericRepository<Admin> adminRepository;
-        private GenericRepository<Appointment> appointmentRepository;
 
         //injecting the context:DBContext
         public UnitOfWork(DbContext paramContext)
@@ -86,19 +85,6 @@ namespace DALayerMedCom
                     this.adminRepository = new GenericRepository<Admin>(context);
                 }
                 return adminRepository;
-            }
-        }
-
-        //pub prop for appointment
-        public GenericRepository<Appointment> AppointmentRepository
-        {
-            get
-            {
-                if (this.appointmentRepository == null)
-                {
-                    this.appointmentRepository = new GenericRepository<Appointment>(context);
-                }
-                return appointmentRepository;
             }
         }
 

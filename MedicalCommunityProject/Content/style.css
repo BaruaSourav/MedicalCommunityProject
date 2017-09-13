@@ -1495,7 +1495,7 @@ input[type=text].ng-invalid:hover {
 .newsletter-box input#appendedInputButton {
 	background: #FFFFFF;
 	display: inline-block;
-	/*float: left;*/
+	float: left;
 	height: 30px;
 	clear: both;
 	width: 100%;
@@ -1576,15 +1576,4 @@ input[type=text].ng-invalid:hover {
 .window{
     position:fixed;
     top:50%;
-}
-.jqx-window-header:first-child{
-  margin-top: 0px;
-  padding-left:122px;
-}
-
-/* Search Bar*/
-
-.searchBar{
-    width:95%;
-
 }
