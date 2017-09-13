@@ -8,193 +8,196 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-        $("#feeRangeSelector").jqxRangeSelector(
-            {
-                width: '100%', height: 10, min: 100, max: 1200, range: { from: 100, to: 1200 },
-                theme: 'darkblue',
-                labelsFormat: 'n',
-                majorTicksInterval: 100,
-                minorTicksInterval: 50
+            $("#feeRangeSelector").jqxRangeSelector(
+                {
+                    width: '100%', height: 10, min: 100, max: 1200, range: { from: 100, to: 1200 },
+                    theme: 'darkblue',
+                    labelsFormat: 'n',
+                    majorTicksInterval: 100,
+                    minorTicksInterval: 50
+                });
+
+
+
+
+            $("#search").jqxInput({ placeHolder: "Doctor's Name", height: 35, width: 200, minLength: 1 });
+            // getting the doctors source
+            $("#search").jqxTooltip({ content: "Filter by doctor's name", position: "bottom", theme: 'darkblue' });
+
+            var source =
+                {
+                    datatype: "json",
+                    datafields: [
+                         { name: 'Name', type: 'string' },
+                         { name: 'Fees', type: 'int' },
+                         { name: 'isOnline' },
+                         { name: 'PracticingAddress', type: 'string' },
+                         { name: 'totalPatients', type: 'int' },
+                         { name: 'spec', type: 'string' }
+                    ],
+                    url: '@Url.Action("getDocInfo", "Appointment", new { Area = "Patients" })',
+                    async: true
+
+                };
+
+
+
+
+
+            $('#search').on('keyup', function () {
+                var value = $('#search').jqxInput('val');
+                //alert(value);
+                addfilter(value);
+            });
+            $('#feeRangeSelector').on('change', function () {
+                var value = $('#search').jqxInput('val');
+                //alert(value);
+                addfilter(value);
+
+
             });
 
 
 
+            //hide on/off button
+            $("#online").hide();
+            $("#offline").hide();
 
-        $("#search").jqxInput({ placeHolder: "Doctor's Name", height: 35, width: 200, minLength: 1 });
-        // getting the doctors source
-        $("#search").jqxTooltip({content:"Filter by doctor's name",position:"bottom",theme:'darkblue'});
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            // initialize jqxGrid
+            $("#docGrid").jqxGrid(
+                {
+                    theme: 'darkblue',
+                    width: '100%',
+                    source: dataAdapter,
 
-        var source =
-            {
-                datatype: "json",
-                datafields: [
-					 { name: 'Name', type: 'string' },
-					 { name: 'Fees', type: 'int' },
-					 { name: 'isOnline' },
-					 { name: 'PracticingAddress', type: 'string' },
-					 { name: 'totalPatients', type: 'int' },
-                     { name: 'spec', type: 'string' }
-                ],
-                url: '@Url.Action("getDocInfo", "Appointment", new { Area = "Patients" })',
-                async:true
+                    height: '100%',
+                    pageable: true,
+                    autorowheight: true,
+                    //filterable:true,
 
+
+                    columns: [
+                        { text: "Name", datafield: "Name", width: "20%" },
+                        { text: "Fees (Taka)", datafield: "Fees", width: "10%" },
+                        { text: "Chamber", datafield: "PracticingAddress", width: "40%" },
+                        { text: "Crowd", datafield: "totalPatients", width: "8%" },
+                        { text: "Specialization", datafield: "spec" }
+
+                    ],
+                    sortable: true
+
+                });
+
+
+            var addfilter = function (filterval) {
+                var filtergroup = new $.jqx.filter();
+                var filtergroup1 = new $.jqx.filter();
+                //var filter_or_operator;
+                if ($('#search').jqxInput('val') == '')
+                    var filter_or_operator = 0;
+                else {
+                    var filter_or_operator = 1;
+                }
+
+                //console.log(filter_or_operator);
+
+                var filtervalue = filterval;
+                var filtercondition = 'contains';
+                var filter = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+                //making range from
+                var range = $('#feeRangeSelector').jqxRangeSelector('getRange');
+                //console.log(range.from);
+                //console.log(range.to);
+
+                var filtervaluefromrange = range.from;
+                var filterconditionfromrange = 'GREATER_THAN_OR_EQUAL';
+                var filterfromrange = filtergroup1.createfilter('numericfilter', filtervaluefromrange, filterconditionfromrange);
+                var filtervaluetorange = range.to;
+                var filterconditiontorange = 'LESS_THAN_OR_EQUAL';
+                var filtertorange = filtergroup1.createfilter('numericfilter', filtervaluetorange, filterconditiontorange);
+
+
+                filtergroup1.addfilter(0, filtertorange);
+                filtergroup1.addfilter(0, filterfromrange);
+                filtergroup.addfilter(filter_or_operator, filter);
+                // add the filters.
+                // console.log(filtergroup);
+                $("#docGrid").jqxGrid('addfilter', 'Name', filtergroup);
+                $("#docGrid").jqxGrid('addfilter', 'Fees', filtergroup1);
+                // apply the filters.
+                $("#docGrid").jqxGrid('applyfilters');
             };
 
+            //All tooltips
+            $('#crowd').jqxTooltip({ position: 'right', content: 'How many patients are enrolled under this doctor?', theme: 'darkblue' });
+            $('#fees').jqxTooltip({ position: 'right', content: 'Consultation Fee for this doctor', theme: 'darkblue' });
+            $('#offline').jqxTooltip({ position: 'right', content: 'The doctor is offline', theme: 'darkblue' });
+            $('#online').jqxTooltip({ position: 'right', content: 'The doctor is online', theme: 'darkblue' });
+            ////////////////////////////////////////////////////////////////////////////////////
+
+            $('#docGrid').on('rowclick', function (event) {
+                var args = event.args;
+
+                var boundIndex = args.rowindex;
+                // row's visible index.
+                var data = $('#docGrid').jqxGrid('getrowdata', boundIndex);
+                //alert(data.Name);
+                var visibleIndex = args.visibleindex;
+                // right click.
+                var rightclick = args.rightclick;
+                // original event.
+                var ev = args.originalEvent;
 
 
+                if ($('#docinfowindow').jqxWindow('isOpen')) {
+                    //$('#docinfowindow').removeClass('bounceInDown').addClass('bounceOutRight');
+                    $('#docinfowindow').jqxWindow('close');
+                    $('#docinfowindow').hide();
+                }
 
 
-        $('#search').on('keyup',function () {
-            var value = $('#search').jqxInput('val');
-            //alert(value);
-            addfilter(value);
-        });
-        $('#feeRangeSelector').on('change', function () {
-            var value = $('#search').jqxInput('val');
-            //alert(value);
-            addfilter(value);
+                if (!$('#docinfowindow').jqxWindow('isOpen')) {
+                    //$('#docinfowindow').removeClass('bounceInDown').addClass('bounceOutRight');
+
+                    $('#doctorName').text(data.Name);
+                    $('#doctorSpec').text(data.spec);
+                    $('#fees').text(data.Fees);
+                    $('#crowd').text(data.totalPatients);
+                    $('#location').text(data.PracticingAddress);
+                    if (data.isOnline) {
+                        $("#online").show();
+                        $("#offline").hide();
+                    }
+                    else {
+                        $("#offline").show();
+                        $("#online").hide();
+                    }
+
+                    $('#docinfowindow').hide();
+                }
 
 
-        });
-
-
-
-        //hide on/off button
-        $("#online").hide();
-        $("#offline").hide();
-
-        var dataAdapter = new $.jqx.dataAdapter(source);
-        // initialize jqxGrid
-        $("#docGrid").jqxGrid(
-            {
-                theme:'darkblue',
-                width: '100%',
-                source: dataAdapter,
-
-                height: '100%',
-                pageable: true,
-                autorowheight: true,
-                //filterable:true,
-
-
-                columns: [
-                    { text: "Name", datafield: "Name" ,width:"20%"},
-                    { text: "Fees (Taka)", datafield: "Fees",width:"10%"},
-                    { text: "Chamber", datafield: "PracticingAddress", width: "40%" },
-                    { text: "Crowd", datafield: "totalPatients",width:"8%" },
-                    { text: "Specialization", datafield: "spec" }
-
-                ],
-                sortable: true
-
+                //$('#docinfowindow').removeClass('bounceOutRight').addClass('bounceInDown');
+                $('#docinfowindow').jqxWindow('open');
             });
 
+            $("#docinfowindow").jqxWindow({ width: 400, height: 400, theme: "darkblue", autoOpen: false, isModal: true, resizable: false });
+            // Place appointment button
+            $("#placeAppointment").jqxButton({ width: '150', height: '25', theme: 'darkblue' });
+            //button responser for click event
+            $("#placeAppointment").on('click', function () {
+                //alert('Appointment');
+                window.location()
+            });
 
-        var addfilter = function (filterval) {
-            var filtergroup = new $.jqx.filter();
-            var filtergroup1 = new $.jqx.filter();
-            //var filter_or_operator;
-            if ($('#search').jqxInput('val') == '')
-                var filter_or_operator = 0;
-            else
-            {
-                var filter_or_operator = 1;
-            }
-
-            //console.log(filter_or_operator);
-
-            var filtervalue = filterval;
-            var filtercondition = 'contains';
-            var filter = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
-            //making range from
-            var range = $('#feeRangeSelector').jqxRangeSelector('getRange');
-            //console.log(range.from);
-            //console.log(range.to);
-
-            var filtervaluefromrange = range.from;
-            var filterconditionfromrange = 'GREATER_THAN_OR_EQUAL';
-            var filterfromrange = filtergroup1.createfilter('numericfilter', filtervaluefromrange, filterconditionfromrange);
-            var filtervaluetorange = range.to;
-            var filterconditiontorange = 'LESS_THAN_OR_EQUAL';
-            var filtertorange = filtergroup1.createfilter('numericfilter', filtervaluetorange, filterconditiontorange);
-
-
-            filtergroup1.addfilter(0, filtertorange);
-            filtergroup1.addfilter(0, filterfromrange);
-            filtergroup.addfilter(filter_or_operator, filter);
-            // add the filters.
-           // console.log(filtergroup);
-            $("#docGrid").jqxGrid('addfilter', 'Name', filtergroup);
-            $("#docGrid").jqxGrid('addfilter', 'Fees', filtergroup1);
-            // apply the filters.
-            $("#docGrid").jqxGrid('applyfilters');
-        };
-
-        //All tooltips
-        $('#crowd').jqxTooltip({ position: 'right', content: 'How many patients are enrolled under this doctor?',theme: 'darkblue' });
-        $('#fees').jqxTooltip({ position: 'right', content: 'Consultation Fee for this doctor', theme: 'darkblue' });
-        $('#offline').jqxTooltip({ position: 'right', content: 'The doctor is offline', theme: 'darkblue' });
-        $('#online').jqxTooltip({ position: 'right', content: 'The doctor is online', theme: 'darkblue' });
-        ////////////////////////////////////////////////////////////////////////////////////
-
-        $('#docGrid').on('rowclick', function (event) {
-            var args = event.args;
-
-            var boundIndex = args.rowindex;
-            // row's visible index.
-            var data = $('#docGrid').jqxGrid('getrowdata', boundIndex);
-            //alert(data.Name);
-            var visibleIndex = args.visibleindex;
-            // right click.
-            var rightclick = args.rightclick;
-            // original event.
-            var ev = args.originalEvent;
-
-
-            if ($('#docinfowindow').jqxWindow('isOpen')) {
-                //$('#docinfowindow').removeClass('bounceInDown').addClass('bounceOutRight');
-                $('#docinfowindow').jqxWindow('close');
-                $('#docinfowindow').hide();
-            }
-
-
-            if (!$('#docinfowindow').jqxWindow('isOpen')) {
-                //$('#docinfowindow').removeClass('bounceInDown').addClass('bounceOutRight');
-
-                $('#doctorName').text(data.Name);
-                $('#doctorSpec').text(data.spec);
-                $('#fees').text(data.Fees);
-                $('#crowd').text(data.totalPatients);
-                $('#location').text(data.PracticingAddress);
-                if (data.isOnline) {
-                    $("#online").show();
-                    $("#offline").hide();
-                }
-                else {
-                    $("#offline").show();
-                    $("#online").hide();
-                }
-
-                $('#docinfowindow').hide();
-            }
-
-
-            //$('#docinfowindow').removeClass('bounceOutRight').addClass('bounceInDown');
-            $('#docinfowindow').jqxWindow('open');
+           
         });
-
-        $("#docinfowindow").jqxWindow({ width: 400, height: 400, theme: "darkblue", autoOpen: false, isModal: true, resizable: false });
-        // Place appointment button
-        $("#placeAppointment").jqxButton({ width: '150', height: '25', theme: 'darkblue'});
-        //button responser for click event
-        $("#placeAppointment").on('click', function () {
-            //alert('Appointment');
-            window.location()
-        });
-    });
     </script>
 
 }
+
+  
 
 <div id="docinfowindow" class="window animated bounceInDown">
     <div>
@@ -298,19 +301,19 @@
         <div class="row searchBar well" id="searchBar">
             <div class="col-lg-3 col-sm-12">
                 <h4>
-                    
+
                     Filter By Doctor's Name
                 </h4>
-                <img src="~/Content/img/ProfImg.png" height="22" style="margin-right:5px;"/><input id="search" type="text" style="margin-top:4px;" />
+                <img src="~/Content/img/ProfImg.png" height="22" style="margin-right:5px;" /><input id="search" type="text" style="margin-top:4px;" />
             </div>
             <div class="col-lg-6 col-sm-12">
                 <h4>Fee Range</h4>
-                <div id="feeRangeSelector" >
+                <div id="feeRangeSelector">
                     <div id="feeRangeSelectorContent">
                     </div>
                 </div>
             </div>
-            
+
 
         </div>
 
