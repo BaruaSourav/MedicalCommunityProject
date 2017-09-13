@@ -183,11 +183,28 @@ namespace BLLayerMedCom
             };
         }
 
+        public DocProfileVM docProfVMfromDoc(Doctor doctor)
+        {
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            return new DocProfileVM
+            {
+                Fees = doctor.ConsFee.GetValueOrDefault(),
+                //region = doctor.Region,
+                Name = "Dr. " + doctor.FirstName.ToUpper().Substring(0, 1) + doctor.FirstName.Substring(1).ToLower() + " " + doctor.LastName.ToUpper().Substring(0, 1) + doctor.LastName.ToLower().Substring(1),
+                PracticingAddress = textInfo.ToTitleCase(doctor.practicingAddress ?? "No Address Given"),
+                isOnline = doctor.isOnline,
+                totalPatients = TotalPatientByDoc(doctor),
+                spec = doctor.Specialization.SpecName,
+                id = doctor.DocID
+
+            };
+        }
 
 
 
-            
-            }
+
+
+    }
             
         
 

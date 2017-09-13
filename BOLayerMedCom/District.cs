@@ -25,5 +25,6 @@ namespace BOLayerMedCom
         public string DistrictName { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Admin> Admins { get; set; }
+        public virtual ICollection<Region> Regions { get; set; }
     }
 }

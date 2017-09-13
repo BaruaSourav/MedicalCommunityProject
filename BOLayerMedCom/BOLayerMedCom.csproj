@@ -90,6 +90,7 @@
       <DependentUpon>MedComDBEntityContext.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\DocCardInfoVM.cs" />
+    <Compile Include="ViewModels\DocProfileVM.cs" />
     <Compile Include="ViewModels\PatientVM.cs" />
     <Compile Include="ViewModels\UserVM.cs" />
   </ItemGroup>
