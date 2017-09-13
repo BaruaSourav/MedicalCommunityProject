@@ -664,7 +664,6 @@
     <Content Include="Content\MenuAnim\normalize.css" />
     <Content Include="Content\MenuAnim\style7.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Content\styles.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
