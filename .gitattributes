@@ -1,1 +1,1 @@
-*.css linguist-vendored=true
+*.css -linguist-language="C#"
